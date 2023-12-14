@@ -2,9 +2,12 @@ import MouseListener from './MouseListener.js';
 import CanvasRenderer from './CanvasRenderer.js';
 import Scene from './Scene.js';
 import Controles from './Controles.js';
+import KeyListener from './KeyListener.js';
 
 export default class Startscherm extends Scene {
   private starting: boolean;
+
+  private keylistener: KeyListener;
 
   private logo: HTMLImageElement;
 
@@ -19,7 +22,7 @@ export default class Startscherm extends Scene {
     this.goToNextScene = false;
     this.posX = 100;
     this.posY = 100;
-    this.logo = CanvasRenderer.loadNewImage('./assets/MicrosoftTeams-image (1).png');
+    this.logo = CanvasRenderer.loadNewImage('./assets/Click to start.png');
   }
 
   /**
@@ -30,6 +33,10 @@ export default class Startscherm extends Scene {
     if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
       this.goToNextScene = true;
     }
+  }
+
+  public override processInput2(keylistener: KeyListener): void {
+
   }
 
   /**
@@ -51,8 +58,7 @@ export default class Startscherm extends Scene {
    * @param canvas
    */
   public override render(canvas: HTMLCanvasElement): void {
-    CanvasRenderer.fillCanvas(canvas, 'rgb(231, 206, 162)');
-    CanvasRenderer.writeText(canvas, 'Click to start!', canvas.width / 2, 809, 'center', 'sans-serif', 50, 'black');
-    CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 2 - this.logo.height / 2);
+    CanvasRenderer.fillCanvas(canvas, 'rgb(70, 106, 44)');
+    CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 2.1 - this.logo.height / 2);
   }
 }

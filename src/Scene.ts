@@ -1,3 +1,4 @@
+import KeyListener from './KeyListener.js';
 import MouseListener from './MouseListener.js';
 
 export default abstract class Scene {
@@ -11,6 +12,8 @@ export default abstract class Scene {
   }
 
   public abstract processInput(mouseListener: MouseListener): void;
+
+  public abstract processInput2(keylistener: KeyListener): void;
 
   public abstract update(elapsed: number): void;
 

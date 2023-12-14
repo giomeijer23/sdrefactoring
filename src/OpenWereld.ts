@@ -1,9 +1,12 @@
 import CanvasRenderer from './CanvasRenderer.js';
+import KeyListener from './KeyListener.js';
 import MouseListener from './MouseListener.js';
 import Scene from './Scene.js';
 
 export default class OpenWereld extends Scene {
   private starting: boolean;
+
+  private keylistener: KeyListener;
 
   private logo: HTMLImageElement;
 
@@ -29,6 +32,10 @@ export default class OpenWereld extends Scene {
     if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
       this.goToNextScene = true;
     }
+  }
+
+  public override processInput2(keylistener: KeyListener): void {
+
   }
 
   /**
