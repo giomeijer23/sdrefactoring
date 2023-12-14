@@ -46,6 +46,18 @@ export default class Dungeon extends Game {
     if (this.keyListener.isKeyDown(KeyListener.KEY_RIGHT)) {
       this.player.moveRight();
     }
+    if (this.keyListener.isKeyDown(KeyListener.KEY_W)) {
+      this.player.moveUp();
+    }
+    if (this.keyListener.isKeyDown(KeyListener.KEY_S)) {
+      this.player.moveDown();
+    }
+    if (this.keyListener.isKeyDown(KeyListener.KEY_A)) {
+      this.player.moveLeft();
+    }
+    if (this.keyListener.isKeyDown(KeyListener.KEY_D)) {
+      this.player.moveRight();
+    }
   }
 
   /**
