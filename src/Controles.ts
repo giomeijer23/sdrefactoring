@@ -1,5 +1,7 @@
 import CanvasRenderer from './CanvasRenderer.js';
+import KeyListener from './KeyListener.js';
 import MouseListener from './MouseListener.js';
+import OpenWereld from './OpenWereld.js';
 import Scene from './Scene.js';
 import Taal from './Taal.js';
 
@@ -27,7 +29,15 @@ export default class Controles extends Scene {
    * @param mouseListener
    */
   public override processInput(mouseListener: MouseListener): void {
-    if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
+
+  }
+
+  /**
+   *
+   * @param keylistener
+   */
+  public override processInput2(keylistener: KeyListener): void {
+    if (keylistener.keyPressed(KeyListener.KEY_ENTER)) {
       this.goToNextScene = true;
     }
   }
@@ -41,7 +51,7 @@ export default class Controles extends Scene {
 
   public override getNextScene(): Scene | null {
     if (this.goToNextScene) {
-      return new Taal(this.maxX, this.maxY);
+      return new OpenWereld(this.maxX, this.maxY);
     }
     return this;
   }
