@@ -82,4 +82,3 @@ export default class Dungeon extends Game {
     this.player.render(this.canvas);
   }
 }
-
