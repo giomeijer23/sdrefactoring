@@ -13,6 +13,10 @@ export default class Speler {
 
   private movingLeft: boolean = false;
 
+  private movingUp: boolean = false;
+
+  private movingDown: boolean = false;
+
   private movingRight: boolean = false;
 
   public constructor(canvasWidth: number, canvasHeight: number) {
@@ -37,11 +41,39 @@ export default class Speler {
   }
 
   /**
+   * Laat de speler omhoog lopen
+   */
+  public moveUp(): void {
+    this.movingUp = true;
+  }
+
+  /**
+   * Laat de speler omlaag lopen
+   */
+  public moveDown(): void {
+    this.movingDown = true;
+  }
+
+  /**
    * Update the position of the player. If the the movingLEft or movingRight
    * flag has been set, the player will move accordingly.
    * @param elapsed the number of ms that has passed since the last update
    */
   public update(elapsed: number): void {
+    if (this.movingUp) {
+      this.posY -= this.speed * elapsed;
+      if (this.posY < 0) {
+        this.posY = 0;
+      }
+      this.movingUp = false;
+    }
+    if (this.movingDown) {
+      this.posY += this.speed * elapsed;
+      if (this.posY+ (this.image.width) > this.maxX) {
+        this.posY = this.maxX - (this.image.width);
+      }
+      this.movingDown = false;
+    }
     if (this.movingLeft) {
       this.posX -= this.speed * elapsed;
       if (this.posX < 0) {
@@ -49,10 +81,11 @@ export default class Speler {
       }
       this.movingLeft = false;
     }
+
     if (this.movingRight) {
       this.posX += this.speed * elapsed;
-      if (this.posX + (this.image.width) > this.maxX) {
-        this.posX = this.maxX - (this.image.width);
+      if (this.posX < 0) {
+        this.posX = 0;
       }
       this.movingRight = false;
     }
