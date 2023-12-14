@@ -16,9 +16,9 @@ export default class Speler {
   private movingRight: boolean = false;
 
   public constructor(canvasWidth: number, canvasHeight: number) {
-    this.image = CanvasRenderer.loadNewImage('./assets/player.png');
-    this.posX = canvasWidth;
-    this.posY = canvasHeight;
+    this.image = CanvasRenderer.loadNewImage('assets/player.png');
+    this.posX = 140;
+    this.posY = canvasHeight / 2;
     this.maxX = canvasWidth;
   }
 

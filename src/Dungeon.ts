@@ -59,4 +59,3 @@ export default class Dungeon extends Game {
   }
 }
 
-console.log(Speler);
