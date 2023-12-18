@@ -1,11 +1,14 @@
 import CanvasRenderer from './CanvasRenderer.js';
 import KeyListener from './KeyListener.js';
+import Level1 from './Level1.js';
 import MouseListener from './MouseListener.js';
 import Scene from './Scene.js';
 import Speler from './Speler.js';
 
 export default class OpenWereld extends Scene {
   private starting: boolean;
+
+  private keylistener: KeyListener;
 
   private logo: HTMLImageElement;
 
@@ -26,7 +29,7 @@ export default class OpenWereld extends Scene {
     this.posX = 100;
     this.posY = 100;
     this.keyListener = new KeyListener();
-    this.logo = CanvasRenderer.loadNewImage('./assets/MicrosoftTeams-image.png');
+    this.logo = CanvasRenderer.loadNewImage('./assets/MicrosoftTeams-image (11).png');
   }
 
   /**
@@ -34,7 +37,12 @@ export default class OpenWereld extends Scene {
    * @param mouseListener
    */
   public override processInput(mouseListener: MouseListener): void {
-    if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
+
+  }
+
+
+  public override processInput2(keylistener: KeyListener): void {
+    if (keylistener.isKeyDown('KeyE')) {
       this.goToNextScene = true;
     }
     if (this.keyListener.isKeyDown(KeyListener.KEY_UP)) {
@@ -62,7 +70,6 @@ export default class OpenWereld extends Scene {
       this.player.moveRight();
     }
   }
-
   /**
    *
    * @param elapsed
@@ -73,7 +80,7 @@ export default class OpenWereld extends Scene {
 
   public override getNextScene(): Scene | null {
     if (this.goToNextScene) {
-      return new OpenWereld(this.maxX, this.maxY);
+      return new Level1(this.maxX, this.maxY);
     }
     return this;
   }
@@ -84,8 +91,6 @@ export default class OpenWereld extends Scene {
    */
   public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.fillCanvas(canvas, 'rgb(231, 206, 162)');
-    CanvasRenderer.drawImage(canvas, this.logo, canvas.width /
-      2 - this.logo.width / 2, canvas.height / 2 - this.logo.height / 2);
-    this.player.render(canvas);
+    CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 1.85 - this.logo.height / 2);
   }
 }
