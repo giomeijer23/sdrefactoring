@@ -3,14 +3,22 @@ import CanvasRenderer from './CanvasRenderer.js';
 import KeyListener from './KeyListener.js';
 import MouseListener from './MouseListener.js';
 import Scene from './Scene.js';
+import Speler from './Speler.js';
+import Enemie from './Enemie.js';
 
 export default class Level1 extends Scene {
   private goToNextScene: boolean;
+
+  private player: Speler;
+
+  private enemie: Enemie;
 
   private logo: HTMLImageElement;
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
+    this.enemie = new Enemie(maxX, maxY);
+    this.player = new Speler(maxX, maxY);
     this.goToNextScene = false;
     this.logo = CanvasRenderer.loadNewImage('./assets/blue-dungeon.png');
   }
@@ -55,6 +63,8 @@ export default class Level1 extends Scene {
   public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.fillCanvas(canvas, 'rgb(70, 106, 44)');
     CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 2.1 - this.logo.height / 2);
+    this.player.render(canvas);
+    this.enemie.render(canvas);
   }
 
   // /**
