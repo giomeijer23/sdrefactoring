@@ -9,7 +9,7 @@ export default class Speler {
 
   private maxX: number;
 
-  private speed: number = 0.4;
+  private speed: number = 0.5;
 
   private movingLeft: boolean = false;
 
@@ -21,8 +21,8 @@ export default class Speler {
 
   public constructor(canvasWidth: number, canvasHeight: number) {
     this.image = CanvasRenderer.loadNewImage('assets/player.png');
-    this.posX = 140;
-    this.posY = canvasHeight / 2;
+    this.posX = 160;
+    this.posY = canvasHeight / 1.9;
     this.maxX = canvasWidth;
   }
 
