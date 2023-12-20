@@ -68,6 +68,7 @@ export default class OpenWereld extends Scene {
       this.player.moveRight();
     }
   }
+
   /**
    *
    * @param elapsed

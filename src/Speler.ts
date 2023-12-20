@@ -11,7 +11,7 @@ export default class Speler {
 
   private maxX: number;
 
-  private speed: number = 0.4;
+  private speed: number = 0.5;
 
   private movingLeft: boolean = false;
 
