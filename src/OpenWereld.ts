@@ -8,8 +8,6 @@ import Speler from './Speler.js';
 export default class OpenWereld extends Scene {
   private starting: boolean;
 
-  private keylistener: KeyListener;
-
   private logo: HTMLImageElement;
 
   private goToNextScene: boolean;
@@ -92,7 +90,7 @@ export default class OpenWereld extends Scene {
    */
   public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.fillCanvas(canvas, 'rgb(231, 206, 162)');
-    CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 1.85 - this.logo.height / 2);
+    CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 1.92 - this.logo.height / 2);
     this.player.render(canvas);
   }
 }
