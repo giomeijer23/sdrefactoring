@@ -62,5 +62,7 @@ export default class Taal extends Scene {
     CanvasRenderer.writeText(canvas, 'Click to start!', canvas.width / 2, 809, 'center', 'sans-serif', 50, 'black');
     // eslint-disable-next-line max-len
     CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 2 - this.logo.height / 2);
+    CanvasRenderer.drawImage(canvas, this.logo, canvas.width
+      / 2 - this.logo.width / 2, canvas.height / 2 - this.logo.height / 2);
   }
 }

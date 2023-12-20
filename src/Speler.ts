@@ -11,7 +11,7 @@ export default class Speler {
 
   private maxX: number;
 
-  private speed: number = 0.4;
+  private speed: number = 0.5;
 
   private movingLeft: boolean = false;
 
@@ -25,6 +25,16 @@ export default class Speler {
 
   public constructor(canvasWidth: number, canvasHeight: number) {
     this.image = CanvasRenderer.loadNewImage('assets/afbeelding (1).png');
+    
+  private showCollisionMessage: boolean = false;
+
+  private firstCollisionOccurred: boolean = false;
+
+  private keyEPressed: boolean = false;
+
+  public constructor(canvasWidth: number, canvasHeight: number) {
+    this.image = CanvasRenderer.loadNewImage('assets/player.png');
+
     this.posX = 840;
     this.posY = 160;
     this.maxX = canvasWidth;
@@ -32,36 +42,40 @@ export default class Speler {
   }
 
   /**
-   * Sets a flag that the player is going to move left
+   *
    */
   public moveLeft(): void {
     this.movingLeft = true;
   }
 
   /**
-   * Sets a flag that the player is going to move right
+   *
    */
   public moveRight(): void {
     this.movingRight = true;
   }
 
   /**
-   * Laat de speler omhoog lopen
+   *
    */
   public moveUp(): void {
     this.movingUp = true;
   }
 
   /**
-   * Laat de speler omlaag lopen
+   *
    */
   public moveDown(): void {
     this.movingDown = true;
   }
 
-  /**
-   *
-   */
+  private handleCollision(): void {
+    if (!this.hasCollision) {
+      this.hasCollision = true;
+      this.showCollisionMessage = true;
+    }
+  }
+
   // eslint-disable-next-line class-methods-use-this
   public isCollidingDungeon(): void {
 
@@ -89,6 +103,7 @@ export default class Speler {
       }
       this.movingUp = false;
     }
+
     if (this.movingDown) {
       this.posY += this.speed * elapsed;
       if (this.posY + this.image.height > this.maxY) {
@@ -96,6 +111,7 @@ export default class Speler {
       }
       this.movingDown = false;
     }
+
     if (this.movingLeft) {
       this.posX -= this.speed * elapsed;
       if (this.posX < 0) {
@@ -112,20 +128,48 @@ export default class Speler {
       this.movingRight = false;
     }
 
+
     const tolerance: number = 30;
 
     if (Math.abs(this.posY - 90) < tolerance && Math.abs(this.posX - 465) < tolerance) {
       this.handleCollision();
+
+    const tolerance: number = 15;
+
+    if (!this.firstCollisionOccurred) {
+      if (Math.abs(this.posY - 90) < tolerance && Math.abs(this.posX - 465) < tolerance) {
+        this.handleCollision();
+        this.firstCollisionOccurred = true;
+      }
+
     }
   }
 
   /**
-   * Render the GameItem to the canvas
    *
-   * @param canvas canvas to render the GameItem to
+   * @param canvas
    */
   public render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.drawImage(canvas, this.image, this.posX, this.posY);
+
+    if (this.showCollisionMessage) {
+      // Render your collision message at the top of the canvas
+      const messageDiv: HTMLDivElement = document.createElement('div');
+      messageDiv.innerHTML = 'Druk op toets E';
+      messageDiv.style.position = 'absolute';
+      messageDiv.style.top = '350px'; // Adjust the top position as needed
+      messageDiv.style.left = '40%';
+      // messageDiv.style.transform = 'translateX(-50%)';
+      messageDiv.style.fontSize = '50px';
+      messageDiv.style.color = 'gold';
+      document.body.appendChild(messageDiv);
+
+      // Remove the message after a short delay (e.g., 2 seconds)
+      setTimeout(() => {
+        document.body.removeChild(messageDiv);
+        this.showCollisionMessage = false;
+        this.hasCollision = false; // Reset collision flag after the message is displayed
+      }, 1000); // Adjust the delay as needed
+    }
   }
 }
-

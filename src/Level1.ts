@@ -2,11 +2,18 @@
 import CanvasRenderer from './CanvasRenderer.js';
 import KeyListener from './KeyListener.js';
 import MouseListener from './MouseListener.js';
+import OpenWereld from './OpenWereld.js';
 import Scene from './Scene.js';
 import Vragen from './Vragen.js';
+import Speler from './Speler.js';
+import Enemie from './Enemie.js';
 
 export default class Level1 extends Scene {
   private goToNextScene: boolean;
+
+  private player: Speler;
+
+  private enemie: Enemie;
 
   private logo: HTMLImageElement;
 
@@ -20,6 +27,8 @@ export default class Level1 extends Scene {
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
+    this.enemie = new Enemie(maxX, maxY);
+    this.player = new Speler(maxX, maxY);
     this.goToNextScene = false;
     this.correctOptions1 = true;
     this.correctOptions = false;
@@ -45,7 +54,7 @@ export default class Level1 extends Scene {
 
   /**
    *
-   * @param keylistener t
+   * @param keylistener
    */
   public override processInput2(keylistener: KeyListener): void {
     if (keylistener.isKeyDown(KeyListener.KEY_A)) {
@@ -104,7 +113,7 @@ export default class Level1 extends Scene {
 
   public override getNextScene(): Scene {
     if (this.goToNextScene) {
-      return new Level1(this.maxX, this.maxY);
+      return new OpenWereld(this.maxX, this.maxY);
     }
     return this;
   }
@@ -165,6 +174,9 @@ export default class Level1 extends Scene {
       CanvasRenderer.writeText(canvas, `${this.vragen[2].options[2]}`, 765, 190, 'left', 'sans-serif', 20, 'black');
       CanvasRenderer.writeText(canvas, `${this.vragen[2].options[3]}`, 765, 240, 'left', 'sans-serif', 20, 'black');
     }
+
+    this.player.render(canvas);
+    this.enemie.render(canvas);
   }
 
   // /**
