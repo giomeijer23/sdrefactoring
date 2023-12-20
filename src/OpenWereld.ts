@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import CanvasRenderer from './CanvasRenderer.js';
 import KeyListener from './KeyListener.js';
 import Level1 from './Level1.js';
@@ -8,9 +9,9 @@ import Speler from './Speler.js';
 export default class OpenWereld extends Scene {
   private starting: boolean;
 
-  private keylistener: KeyListener;
-
   private logo: HTMLImageElement;
+
+  private dungeon1: HTMLImageElement;
 
   private goToNextScene: boolean;
 
@@ -20,16 +21,14 @@ export default class OpenWereld extends Scene {
 
   private player: Speler;
 
-  private keyListener: KeyListener;
-
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.goToNextScene = false;
     this.player = new Speler(maxX, maxY);
     this.posX = 100;
     this.posY = 100;
-    this.keyListener = new KeyListener();
     this.logo = CanvasRenderer.loadNewImage('./assets/MicrosoftTeams-image (11).png');
+    this.dungeon1 = CanvasRenderer.loadNewImage('./assets/afbeelding (1).png');
   }
 
   /**
@@ -41,38 +40,43 @@ export default class OpenWereld extends Scene {
   }
 
 
+  /**
+   *
+   * @param keylistener
+   */
   public override processInput2(keylistener: KeyListener): void {
     if (keylistener.isKeyDown('KeyE')) {
       this.goToNextScene = true;
     }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_UP)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_UP)) {
       this.player.moveUp();
     }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_DOWN)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_DOWN)) {
       this.player.moveDown();
     }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_LEFT)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_LEFT)) {
       this.player.moveLeft();
     }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_RIGHT)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_RIGHT)) {
       this.player.moveRight();
     }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_W)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_W)) {
       this.player.moveUp();
     }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_S)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_S)) {
       this.player.moveDown();
     }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_A)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_A)) {
       this.player.moveLeft();
     }
-    if (this.keyListener.isKeyDown(KeyListener.KEY_D)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_D)) {
       this.player.moveRight();
     }
   }
+
   /**
    *
-   * @param elapsed
+   * @param elapsed t
    */
   public override update(elapsed: number): void {
     this.player.update(elapsed);
@@ -91,7 +95,7 @@ export default class OpenWereld extends Scene {
    */
   public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.fillCanvas(canvas, 'rgb(231, 206, 162)');
-    CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 1.85 - this.logo.height / 2);
+    CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 1.92 - this.logo.height / 2);
     this.player.render(canvas);
   }
 }

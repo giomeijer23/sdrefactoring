@@ -27,7 +27,7 @@ export default class Startscherm extends Scene {
 
   /**
    *
-   * @param mouseListener
+   * @param mouseListener t
    */
   public override processInput(mouseListener: MouseListener): void {
     if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
@@ -41,7 +41,7 @@ export default class Startscherm extends Scene {
 
   /**
    *
-   * @param elapsed
+   * @param elapsed t
    */
   public override update(elapsed: number): void {
   }
@@ -55,10 +55,11 @@ export default class Startscherm extends Scene {
 
   /**
    *
-   * @param canvas
+   * @param canvas t
    */
   public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.fillCanvas(canvas, 'rgb(70, 106, 44)');
+    // eslint-disable-next-line max-len
     CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 2.1 - this.logo.height / 2);
   }
 }

@@ -7,6 +7,8 @@ export default class Speler {
 
   private image: HTMLImageElement;
 
+  private maxY: number;
+
   private maxX: number;
 
   private speed: number = 0.4;
@@ -19,11 +21,14 @@ export default class Speler {
 
   private movingRight: boolean = false;
 
+  private hasCollision: boolean = false;
+
   public constructor(canvasWidth: number, canvasHeight: number) {
-    this.image = CanvasRenderer.loadNewImage('assets/player.png');
-    this.posX = 140;
-    this.posY = canvasHeight / 2;
+    this.image = CanvasRenderer.loadNewImage('assets/afbeelding (1).png');
+    this.posX = 840;
+    this.posY = 160;
     this.maxX = canvasWidth;
+    this.maxY = canvasHeight;
   }
 
   /**
@@ -55,6 +60,23 @@ export default class Speler {
   }
 
   /**
+   *
+   */
+  // eslint-disable-next-line class-methods-use-this
+  public isCollidingDungeon(): void {
+
+  }
+
+  private handleCollision(): void {
+    if (!this.hasCollision) {
+      this.hasCollision = true;
+      window.alert('Druk op toets E');
+      this.movingDown = false;
+    }
+  }
+
+
+  /**
    * Update the position of the player. If the the movingLEft or movingRight
    * flag has been set, the player will move accordingly.
    * @param elapsed the number of ms that has passed since the last update
@@ -69,8 +91,8 @@ export default class Speler {
     }
     if (this.movingDown) {
       this.posY += this.speed * elapsed;
-      if (this.posY+ (this.image.width) > this.maxX) {
-        this.posY = this.maxX - (this.image.width);
+      if (this.posY + this.image.height > this.maxY) {
+        this.posY = this.maxY - this.image.height;
       }
       this.movingDown = false;
     }
@@ -84,10 +106,16 @@ export default class Speler {
 
     if (this.movingRight) {
       this.posX += this.speed * elapsed;
-      if (this.posX < 0) {
-        this.posX = 0;
+      if (this.posX + this.image.width > this.maxX) {
+        this.posX = this.maxX - this.image.width;
       }
       this.movingRight = false;
+    }
+
+    const tolerance: number = 30;
+
+    if (Math.abs(this.posY - 90) < tolerance && Math.abs(this.posX - 465) < tolerance) {
+      this.handleCollision();
     }
   }
 
