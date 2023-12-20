@@ -2,7 +2,9 @@
 import CanvasRenderer from './CanvasRenderer.js';
 import KeyListener from './KeyListener.js';
 import MouseListener from './MouseListener.js';
+import OpenWereld from './OpenWereld.js';
 import Scene from './Scene.js';
+
 
 export default class Level1 extends Scene {
   private goToNextScene: boolean;
@@ -27,7 +29,7 @@ export default class Level1 extends Scene {
 
   /**
    *
-   * @param keylistener t
+   * @param keylistener
    */
   public override processInput2(keylistener: KeyListener): void {
     // Hoeft niks te doen
@@ -43,7 +45,7 @@ export default class Level1 extends Scene {
 
   public override getNextScene(): Scene {
     if (this.goToNextScene) {
-      return new Level1(this.maxX, this.maxY);
+      return new OpenWereld(this.maxX, this.maxY);
     }
     return this;
   }
