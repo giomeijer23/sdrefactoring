@@ -64,9 +64,9 @@ export default class Level1 extends Scene {
    * @param mouseListener t
    */
   public override processInput(mouseListener: MouseListener): void {
-    // if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
-    //   this.goToNextScene = true;
-    // }
+    if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
+      this.goToNextScene = true;
+    }
   }
 
   /**
