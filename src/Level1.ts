@@ -7,7 +7,6 @@ import Scene from './Scene.js';
 import Vragen from './Vragen.js';
 import Speler from './Speler.js';
 import Enemie from './Enemie.js';
-import Wachtwoord from './Wachtwoord.js';
 
 export default class Level1 extends Scene {
   private goToNextScene: boolean;
@@ -25,12 +24,6 @@ export default class Level1 extends Scene {
   private logo3: HTMLImageElement;
 
   private vragen: Vragen[];
-
-  private answerValue: boolean;
-
-  private passwordInput1: Wachtwoord;
-
-  private password1: string;
 
   private correctOptions0: boolean;
 
@@ -52,7 +45,6 @@ export default class Level1 extends Scene {
     this.correctOptions1 = false;
     this.correctOptions2 = false;
     this.correctOptions3 = false;
-    this.answerValue = false;
     this.logo = CanvasRenderer.loadNewImage('./assets/blue-dungeon.png');
     this.logo1 = CanvasRenderer.loadNewImage('./assets/NepRoblox.jpeg');
     this.logo2 = CanvasRenderer.loadNewImage('./assets/RobloxWebsite.png');
