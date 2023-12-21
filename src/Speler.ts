@@ -5,6 +5,8 @@ export default class Speler {
 
   private posY: number;
 
+  private level1Completed: boolean = false;
+
   private image: HTMLImageElement;
 
   private maxY: number;
@@ -37,6 +39,10 @@ export default class Speler {
     this.maxY = canvasHeight;
   }
 
+  public setLevel1Completed(completed: boolean): void {
+    this.level1Completed = completed;
+  }
+
   /**
    *
    */
@@ -66,9 +72,16 @@ export default class Speler {
   }
 
   private handleCollision(): void {
-    if (!this.hasCollision) {
+    if (!this.hasCollision && !this.level1Completed) {
+      // Original collision logic for Level 1
       this.hasCollision = true;
       this.showCollisionMessage = true;
+    } else if (!this.hasCollision && this.level1Completed) {
+      // New collision logic for Level 2 (adjust as needed)
+      // Example: Change position or do something specific for Level 2
+      this.hasCollision = true;
+      this.showCollisionMessage = true;
+      this.level1Completed = false; // Reset level1Completed after Level 2 collision
     }
   }
 
