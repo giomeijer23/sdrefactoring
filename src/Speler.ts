@@ -33,8 +33,8 @@ export default class Speler {
 
   public constructor(canvasWidth: number, canvasHeight: number) {
     this.image = CanvasRenderer.loadNewImage('assets/player.png');
-    this.posX = 840;
-    this.posY = 160;
+    this.posX = 900;
+    this.posY = 200;
     this.maxX = canvasWidth;
     this.maxY = canvasHeight;
   }
@@ -131,7 +131,7 @@ export default class Speler {
     const tolerance: number = 15;
 
     if (!this.firstCollisionOccurred) {
-      if (Math.abs(this.posY - 90) < tolerance && Math.abs(this.posX - 465) < tolerance) {
+      if (Math.abs(this.posY - 130) < tolerance && Math.abs(this.posX - 525) < tolerance) {
         this.handleCollision();
         this.firstCollisionOccurred = true;
       }
