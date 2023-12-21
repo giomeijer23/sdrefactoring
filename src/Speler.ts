@@ -23,9 +23,6 @@ export default class Speler {
 
   private hasCollision: boolean = false;
 
-  public constructor(canvasWidth: number, canvasHeight: number) {
-    this.image = CanvasRenderer.loadNewImage('assets/afbeelding (1).png');
-    
   private showCollisionMessage: boolean = false;
 
   private firstCollisionOccurred: boolean = false;
@@ -34,7 +31,6 @@ export default class Speler {
 
   public constructor(canvasWidth: number, canvasHeight: number) {
     this.image = CanvasRenderer.loadNewImage('assets/player.png');
-
     this.posX = 840;
     this.posY = 160;
     this.maxX = canvasWidth;
@@ -81,15 +77,6 @@ export default class Speler {
 
   }
 
-  private handleCollision(): void {
-    if (!this.hasCollision) {
-      this.hasCollision = true;
-      window.alert('Druk op toets E');
-      this.movingDown = false;
-    }
-  }
-
-
   /**
    * Update the position of the player. If the the movingLEft or movingRight
    * flag has been set, the player will move accordingly.
@@ -128,12 +115,6 @@ export default class Speler {
       this.movingRight = false;
     }
 
-
-    const tolerance: number = 30;
-
-    if (Math.abs(this.posY - 90) < tolerance && Math.abs(this.posX - 465) < tolerance) {
-      this.handleCollision();
-
     const tolerance: number = 15;
 
     if (!this.firstCollisionOccurred) {
@@ -141,7 +122,6 @@ export default class Speler {
         this.handleCollision();
         this.firstCollisionOccurred = true;
       }
-
     }
   }
 

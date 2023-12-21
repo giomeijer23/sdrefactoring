@@ -62,6 +62,28 @@ export default class CanvasRenderer {
     ctx.drawImage(image, dx, dy);
   }
 
+
+  /**
+   *
+   * @param canvas t
+   * @param image t
+   * @param dx t
+   * @param dy t
+   * @param width t
+   * @param height t
+   */
+  public static drawImage1(
+    canvas: HTMLCanvasElement,
+    image: HTMLImageElement,
+    dx: number,
+    dy: number,
+    width: number,
+    height: number,
+  ): void {
+    const ctx: CanvasRenderingContext2D = CanvasRenderer.getCanvasContext(canvas);
+    ctx.drawImage(image, dx, dy, width, height);
+  }
+
   /**
    * Clear the canvas, preparing for drawing
    *

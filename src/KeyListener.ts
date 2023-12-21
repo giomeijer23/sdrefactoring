@@ -23,6 +23,12 @@ export default class KeyListener {
   // keycode, see:https://keycode.info/
   public static readonly KEY_ENTER: string = 'Enter';
 
+  public static readonly KEY_CAPS_LOCK: string = 'CapsLock';
+
+  public static readonly KEY_NUMPAD_ENTER: string = 'NumpadEnter';
+
+  public static readonly KEY_BACKSPACE: string = 'BackSpace';
+
   public static readonly KEY_SHIFT_LEFT: string = 'ShiftLeft';
 
   public static readonly KEY_SHIFT_RIGHT: string = 'ShiftRight';

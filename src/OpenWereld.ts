@@ -94,8 +94,8 @@ export default class OpenWereld extends Scene {
    * @param canvas
    */
   public override render(canvas: HTMLCanvasElement): void {
-    CanvasRenderer.fillCanvas(canvas, 'rgb(231, 206, 162)');
-    CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 1.92 - this.logo.height / 2);
+    // CanvasRenderer.fillCanvas(canvas, 'rgb(231, 206, 162)');
+    // CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 1.92 - this.logo.height / 2);
     this.player.render(canvas);
   }
 }
