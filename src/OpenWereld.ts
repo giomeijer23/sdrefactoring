@@ -21,10 +21,11 @@ export default class OpenWereld extends Scene {
 
   private player: Speler;
 
-  public constructor(maxX: number, maxY: number) {
+  public constructor(maxX: number, maxY: number, level1Completed: boolean = false) {
     super(maxX, maxY);
     this.goToNextScene = false;
     this.player = new Speler(maxX, maxY);
+    this.player.setLevel1Completed(level1Completed);
     this.posX = 100;
     this.posY = 100;
     this.logo = CanvasRenderer.loadNewImage('./assets/MicrosoftTeams-image (11).png');
@@ -94,8 +95,6 @@ export default class OpenWereld extends Scene {
    * @param canvas
    */
   public override render(canvas: HTMLCanvasElement): void {
-    CanvasRenderer.fillCanvas(canvas, 'rgb(231, 206, 162)');
-    CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 1.92 - this.logo.height / 2);
     this.player.render(canvas);
   }
 }
