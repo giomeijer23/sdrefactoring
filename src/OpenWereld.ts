@@ -28,7 +28,6 @@ export default class OpenWereld extends Scene {
     this.player.setLevel1Completed(level1Completed);
     this.posX = 100;
     this.posY = 100;
-    this.logo = CanvasRenderer.loadNewImage('./assets/MicrosoftTeams-image (11).png');
     this.dungeon1 = CanvasRenderer.loadNewImage('./assets/afbeelding (1).png');
   }
 
