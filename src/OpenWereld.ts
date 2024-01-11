@@ -5,6 +5,7 @@ import Level1 from './Level1.js';
 import MouseListener from './MouseListener.js';
 import Scene from './Scene.js';
 import Speler from './Speler.js';
+import Sprite from './Sprite.js';
 
 export default class OpenWereld extends Scene {
   private starting: boolean;
@@ -78,8 +79,8 @@ export default class OpenWereld extends Scene {
    *
    * @param elapsed t
    */
-  public override update(elapsed: number): void {
-    this.player.update(elapsed);
+  public override update(elapsed: number, currentSprite: Sprite): void {
+    this.player.update(elapsed, currentSprite);
   }
 
   public override getNextScene(): Scene | null {

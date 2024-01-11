@@ -1,6 +1,7 @@
 import CanvasRenderer from './CanvasRenderer.js';
+import Sprite from './Sprite.js';
 
-export default class Speler {
+export default class Speler{
   private posX: number;
 
   private posY: number;
@@ -31,12 +32,12 @@ export default class Speler {
 
   private keyEPressed: boolean = false;
 
-  public constructor(canvasWidth: number, canvasHeight: number) {
+  public constructor(maxX: number, maxY: number) {
     this.image = CanvasRenderer.loadNewImage('assets/player.png');
     this.posX = 194;
     this.posY = 261;
-    this.maxX = canvasWidth;
-    this.maxY = canvasHeight;
+    this.maxX = maxX;
+    this.maxY = maxY;
   }
 
   public setLevel1Completed(completed: boolean): void {
@@ -85,17 +86,14 @@ export default class Speler {
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  public isCollidingDungeon(): void {
-
-  }
-
   /**
    * Update the position of the player. If the the movingLEft or movingRight
    * flag has been set, the player will move accordingly.
    * @param elapsed the number of ms that has passed since the last update
+   * @param currentSprite the current
    */
-  public update(elapsed: number): void {
+  // eslint-disable-next-line max-len
+  public update(elapsed: number, currentSprite : Sprite): void { // todo send sprites[currentSprite]
     if (this.movingUp) {
       this.posY -= this.speed * elapsed;
       if (this.posY < 0) {
@@ -130,10 +128,17 @@ export default class Speler {
 
     const tolerance: number = 40;
 
+
     if (!this.firstCollisionOccurred) {
-      if (Math.abs(this.posY - 620) < tolerance && Math.abs(this.posX - 199) < tolerance) {
+      // eslint-disable-next-line max-len
+      if (Math.abs(this.posY - currentSprite.getPosY()) < tolerance && Math.abs(this.posX - currentSprite.getPosX()) < tolerance) {
         this.handleCollision();
         this.firstCollisionOccurred = true;
+      }
+    } else if (this.firstCollisionOccurred) {
+      // eslint-disable-next-line max-len
+      if (Math.abs(this.posY - currentSprite.getPosY()) < tolerance && Math.abs(this.posX - currentSprite.getPosX()) < tolerance) {
+        this.handleCollision();
       }
     }
   }

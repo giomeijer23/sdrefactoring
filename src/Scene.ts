@@ -1,5 +1,6 @@
 import KeyListener from './KeyListener.js';
 import MouseListener from './MouseListener.js';
+import Sprite from './Sprite.js';
 
 export default abstract class Scene {
   protected maxX: number;
@@ -15,7 +16,7 @@ export default abstract class Scene {
 
   public abstract processInput2(keylistener: KeyListener): void;
 
-  public abstract update(elapsed: number): void;
+  public abstract update(elapsed: number, currentSprite: Sprite): void;
 
   public abstract getNextScene(): Scene | null;
 
