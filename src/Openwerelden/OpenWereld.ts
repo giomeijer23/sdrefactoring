@@ -1,20 +1,21 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
-import Level1 from '../Level1.js';
 import MouseListener from '../MouseListener.js';
 import Scene from '../Scene.js';
+import Shop from '../Shops/Shop.js';
 import Speler from '../Speler.js';
 
-export default class OpenWereld1 extends Scene {
+export default class OpenWereld extends Scene {
+  private textScene: boolean;
+
   private goToNextScene: boolean;
 
   private player: Speler;
 
-  private textScene: boolean;
-
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.goToNextScene = false;
+    this.textScene = false;
     this.player = new Speler(maxX, maxY);
   }
 
@@ -27,8 +28,8 @@ export default class OpenWereld1 extends Scene {
     const mouseY: number = mouseListener.getMousePosition().y;
 
     // Define the regions on the X and Y axes
-    const xRegions: { lb: number; rb: number; } = { lb: 165, rb: 230 };
-    const yRegions: { lo: number; ro: number } = { ro: 656, lo: 0 };
+    const xRegions: { lb: number; rb: number; } = { lb: 160, rb: 240 };
+    const yRegions: { lo: number; ro: number } = { ro: 476, lo: 0 };
 
 
     // Check if the mouse position is within the specified regions
@@ -86,7 +87,7 @@ export default class OpenWereld1 extends Scene {
 
   public override getNextScene(): Scene | null {
     if (this.goToNextScene) {
-      return new Level1(this.maxX, this.maxY);
+      return new Shop(this.maxX, this.maxY);
     }
     return this;
   }

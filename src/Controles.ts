@@ -2,26 +2,17 @@
 import CanvasRenderer from './CanvasRenderer.js';
 import KeyListener from './KeyListener.js';
 import MouseListener from './MouseListener.js';
-import OpenWereld from './OpenWereld.js';
+import OpenWereld from './OpenWerelden/OpenWereld.js';
 import Scene from './Scene.js';
-import Taal from './Taal.js';
 
 export default class Controles extends Scene {
-  private starting: boolean;
-
   private logo: HTMLImageElement;
 
   private goToNextScene: boolean;
 
-  private posX: number;
-
-  private posY: number;
-
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.goToNextScene = false;
-    this.posX = 100;
-    this.posY = 100;
     this.logo = CanvasRenderer.loadNewImage('./assets/controlscherm.jpg');
   }
 

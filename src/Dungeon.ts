@@ -4,8 +4,6 @@ import MouseListener from './MouseListener.js';
 import Startscherm from './Startscherm.js';
 import Scene from './Scene.js';
 import KeyListener from './KeyListener.js';
-import Vragen from './Vragen.js';
-import Sprite from './Sprite.js';
 
 export default class Dungeon extends Game {
   private canvas: HTMLCanvasElement;
@@ -16,12 +14,6 @@ export default class Dungeon extends Game {
 
   private currentScene: Scene;
 
-  private vragen: Vragen[];
-
-  private sprites: Sprite[] = [];
-
-  private currentSprite: number = 0;
-
   public constructor(canvas: HTMLCanvasElement) {
     super();
     this.canvas = canvas;
@@ -30,10 +22,6 @@ export default class Dungeon extends Game {
     this.mouseListener = new MouseListener(this.canvas);
     this.keylistener = new KeyListener();
     this.currentScene = new Startscherm(canvas.width, canvas.height);
-    this.sprites.push(new Sprite(199, 620));
-    this.sprites.push(new Sprite(242, 600));
-    this.sprites.push(new Sprite(561, 1000));
-    this.sprites.push(new Sprite(186, 1399));
   }
 
   /**
@@ -49,11 +37,8 @@ export default class Dungeon extends Game {
    * @param elapsed -
    */
   public update(elapsed: number): boolean {
-    for (let i: number = 0; i < this.sprites.length; i++) {
-      this.currentScene.update(elapsed, this.sprites[this.currentSprite]);
-      this.currentScene = this.currentScene.getNextScene();
-      console.log(this.currentScene);
-    }
+    this.currentScene.update(elapsed); // Pass an array with the current sprite
+    this.currentScene = this.currentScene.getNextScene();
     return this.currentScene != null;
   }
 

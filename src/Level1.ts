@@ -2,11 +2,11 @@
 import CanvasRenderer from './CanvasRenderer.js';
 import KeyListener from './KeyListener.js';
 import MouseListener from './MouseListener.js';
-import OpenWereld from './OpenWereld.js';
 import Scene from './Scene.js';
 import Vragen from './Vragen.js';
 import Speler from './Speler.js';
 import Enemie from './Enemie.js';
+import OpenWereld1 from './OpenWerelden/OpenWereld1.js';
 
 export default class Level1 extends Scene {
   private goToNextScene: boolean;
@@ -145,12 +145,13 @@ export default class Level1 extends Scene {
    * @param elapsed t
    */
   public override update(elapsed: number): void {
+
     // Hoeft niks te doen
   }
 
   public override getNextScene(): Scene {
     if (this.goToNextScene) {
-      return new OpenWereld(this.maxX, this.maxY);
+      return new OpenWereld1(this.maxX, this.maxY);
     }
     return this;
   }
