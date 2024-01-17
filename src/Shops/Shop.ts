@@ -4,7 +4,6 @@ import KeyListener from '../KeyListener.js';
 import MouseListener from '../MouseListener.js';
 import OpenWereld1 from '../OpenWerelden/OpenWereld1.js';
 import Scene from '../Scene.js';
-import Speler from '../Speler.js';
 
 export default class Shop extends Scene {
   private logo: HTMLImageElement;
@@ -12,12 +11,6 @@ export default class Shop extends Scene {
   private goToNextScene: boolean;
 
   private textScene: boolean;
-
-  // private posX: number;
-
-  // private posY: number;
-
-  // private player: Speler;
 
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
