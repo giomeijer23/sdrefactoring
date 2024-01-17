@@ -5,23 +5,13 @@ import Controles from './Controles.js';
 import KeyListener from './KeyListener.js';
 
 export default class Startscherm extends Scene {
-  private starting: boolean;
-
-  private keylistener: KeyListener;
-
   private logo: HTMLImageElement;
 
   private goToNextScene: boolean;
 
-  private posX: number;
-
-  private posY: number;
-
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.goToNextScene = false;
-    this.posX = 100;
-    this.posY = 100;
     this.logo = CanvasRenderer.loadNewImage('./assets/Click to start.png');
   }
 

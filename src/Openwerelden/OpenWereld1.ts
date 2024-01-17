@@ -1,48 +1,50 @@
-/* eslint-disable max-len */
-import CanvasRenderer from './CanvasRenderer.js';
-import KeyListener from './KeyListener.js';
-import Level1 from './Level1.js';
-import MouseListener from './MouseListener.js';
-import Scene from './Scene.js';
-import Speler from './Speler.js';
+import CanvasRenderer from '../CanvasRenderer.js';
+import KeyListener from '../KeyListener.js';
+import Level1 from '../Level1.js';
+import MouseListener from '../MouseListener.js';
+import Scene from '../Scene.js';
+import Speler from '../Speler.js';
 
-export default class OpenWereld extends Scene {
-  private starting: boolean;
-
-  private logo: HTMLImageElement;
-
-  private dungeon1: HTMLImageElement;
-
+export default class OpenWereld1 extends Scene {
   private goToNextScene: boolean;
-
-  private posX: number;
-
-  private posY: number;
 
   private player: Speler;
 
-  public constructor(maxX: number, maxY: number, level1Completed: boolean = false) {
+  private textScene: boolean;
+
+  public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.goToNextScene = false;
     this.player = new Speler(maxX, maxY);
-    this.player.setLevel1Completed(level1Completed);
-    this.posX = 100;
-    this.posY = 100;
-    this.dungeon1 = CanvasRenderer.loadNewImage('./assets/afbeelding (1).png');
   }
 
   /**
    *
-   * @param mouseListener
+   * @param mouseListener -
    */
   public override processInput(mouseListener: MouseListener): void {
+    const mouseX: number = mouseListener.getMousePosition().x;
+    const mouseY: number = mouseListener.getMousePosition().y;
 
+    // Define the regions on the X and Y axes
+    const xRegions: { lb: number; rb: number; } = { lb: 165, rb: 230 };
+    const yRegions: { lo: number; ro: number } = { ro: 656, lo: 0 };
+
+
+    // Check if the mouse position is within the specified regions
+    if (
+      mouseX >= xRegions.lb && mouseX <= xRegions.rb &&
+      mouseY >= yRegions.lo && mouseY <= yRegions.ro
+    ) {
+      if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
+        this.textScene = true;
+      }
+    }
   }
-
 
   /**
    *
-   * @param keylistener
+   * @param keylistener -
    */
   public override processInput2(keylistener: KeyListener): void {
     if (keylistener.isKeyDown('KeyE')) {
@@ -76,7 +78,7 @@ export default class OpenWereld extends Scene {
 
   /**
    *
-   * @param elapsed t
+   * @param elapsed -
    */
   public override update(elapsed: number): void {
     this.player.update(elapsed);
@@ -91,9 +93,19 @@ export default class OpenWereld extends Scene {
 
   /**
    *
-   * @param canvas
+   * @param canvas -
    */
   public override render(canvas: HTMLCanvasElement): void {
     this.player.render(canvas);
+    if (this.textScene) {
+      CanvasRenderer.writeText(canvas, 'Druk op toets E', canvas.width / 2, canvas.height / 2, 'center', 'arial', 50, 'gold');
+
+      const displayDuration: number = 3000;
+
+      // Start de timer om de tekst na de opgegeven duur te verbergen
+      setTimeout(() => {
+        this.textScene = false;
+      }, displayDuration);
+    }
   }
 }

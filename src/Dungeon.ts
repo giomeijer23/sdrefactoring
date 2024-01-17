@@ -4,7 +4,6 @@ import MouseListener from './MouseListener.js';
 import Startscherm from './Startscherm.js';
 import Scene from './Scene.js';
 import KeyListener from './KeyListener.js';
-import Vragen from './Vragen.js';
 
 export default class Dungeon extends Game {
   private canvas: HTMLCanvasElement;
@@ -15,8 +14,6 @@ export default class Dungeon extends Game {
 
   private currentScene: Scene;
 
-  private vragen: Vragen[];
-
   public constructor(canvas: HTMLCanvasElement) {
     super();
     this.canvas = canvas;
@@ -25,8 +22,6 @@ export default class Dungeon extends Game {
     this.mouseListener = new MouseListener(this.canvas);
     this.keylistener = new KeyListener();
     this.currentScene = new Startscherm(canvas.width, canvas.height);
-    // eslint-disable-next-line max-len
-    // this.vragen = new Vragen('Na hoeveel tijd heb je een pauze nodig als je achter een scherm zit? (computer ,nintendo switch, playstation)', ['60 min', '30 min', '120 min', '90 min'], '120 min');
   }
 
   /**
@@ -38,11 +33,11 @@ export default class Dungeon extends Game {
   }
 
   /**
-   *
-   * @param elapsed
+   *@returns -
+   * @param elapsed -
    */
   public update(elapsed: number): boolean {
-    this.currentScene.update(elapsed);
+    this.currentScene.update(elapsed); // Pass an array with the current sprite
     this.currentScene = this.currentScene.getNextScene();
     return this.currentScene != null;
   }

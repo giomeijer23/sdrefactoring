@@ -2,11 +2,11 @@
 import CanvasRenderer from './CanvasRenderer.js';
 import KeyListener from './KeyListener.js';
 import MouseListener from './MouseListener.js';
-import OpenWereld from './OpenWereld.js';
 import Scene from './Scene.js';
 import Vragen from './Vragen.js';
 import Speler from './Speler.js';
 import Enemie from './Enemie.js';
+import OpenWereld1 from './OpenWerelden/OpenWereld1.js';
 
 export default class Level1 extends Scene {
   private goToNextScene: boolean;
@@ -75,66 +75,66 @@ export default class Level1 extends Scene {
    */
   public override processInput2(keylistener: KeyListener): void {
     if (keylistener.keyPressed(KeyListener.KEY_A)) {
-      if(this.vragen[0].options[0] === this.vragen[0].getCorrectOption()) {
+      if (this.vragen[0].options[0] === this.vragen[0].getCorrectOption()) {
         console.log('ok');
       }
-      if(this.vragen[1].options[0] === this.vragen[1].getCorrectOption()) {
+      if (this.vragen[1].options[0] === this.vragen[1].getCorrectOption()) {
         console.log('ok');
       }
-      if(this.correctOptions1){
-        if(this.vragen[2].options[0] === this.vragen[2].getCorrectOption()) {
+      if (this.correctOptions1) {
+        if (this.vragen[2].options[0] === this.vragen[2].getCorrectOption()) {
           this.correctOptions2 = true;
         }
       }
-      if(this.vragen[3].options[0] === this.vragen[3].getCorrectOption()) {
+      if (this.vragen[3].options[0] === this.vragen[3].getCorrectOption()) {
         console.log('ok');
       }
     }
     if (keylistener.keyPressed(KeyListener.KEY_B)) {
-      if(this.vragen[0].options[1] === this.vragen[0].getCorrectOption()) {
+      if (this.vragen[0].options[1] === this.vragen[0].getCorrectOption()) {
         console.log('ok');
       }
-      if(this.vragen[1].options[1] === this.vragen[1].getCorrectOption()) {
+      if (this.vragen[1].options[1] === this.vragen[1].getCorrectOption()) {
         console.log('ok');
       }
-      if(this.vragen[2].options[1] === this.vragen[2].getCorrectOption()) {
+      if (this.vragen[2].options[1] === this.vragen[2].getCorrectOption()) {
         console.log('ok');
       }
-      if(this.correctOptions2) {
-        if(this.vragen[3].options[1] === this.vragen[3].getCorrectOption()) {
+      if (this.correctOptions2) {
+        if (this.vragen[3].options[1] === this.vragen[3].getCorrectOption()) {
           this.correctOptions3 = true;
         }
       }
     }
     if (keylistener.keyPressed(KeyListener.KEY_C)) {
-      if(this.correctOptions0) {
-        if(this.vragen[0].options[2] === this.vragen[0].getCorrectOption()) {
+      if (this.correctOptions0) {
+        if (this.vragen[0].options[2] === this.vragen[0].getCorrectOption()) {
           this.correctOptions = true;
         }
       }
-      if(this.vragen[1].options[2] === this.vragen[1].getCorrectOption()) {
+      if (this.vragen[1].options[2] === this.vragen[1].getCorrectOption()) {
         console.log('ok');
       }
-      if(this.vragen[2].options[2] === this.vragen[2].getCorrectOption()) {
+      if (this.vragen[2].options[2] === this.vragen[2].getCorrectOption()) {
         console.log('ok');
       }
-      if(this.vragen[3].options[2] === this.vragen[3].getCorrectOption()) {
+      if (this.vragen[3].options[2] === this.vragen[3].getCorrectOption()) {
         console.log('ok');
       }
     }
     if (keylistener.keyPressed(KeyListener.KEY_D)) {
-      if(this.vragen[0].options[3] === this.vragen[0].getCorrectOption()) {
+      if (this.vragen[0].options[3] === this.vragen[0].getCorrectOption()) {
         console.log('ok');
       }
-      if(this.correctOptions){
-        if(this.vragen[1].options[3] === this.vragen[1].getCorrectOption()) {
+      if (this.correctOptions) {
+        if (this.vragen[1].options[3] === this.vragen[1].getCorrectOption()) {
           this.correctOptions1 = true;
         }
       }
-      if(this.vragen[2].options[3] === this.vragen[2].getCorrectOption()) {
+      if (this.vragen[2].options[3] === this.vragen[2].getCorrectOption()) {
         console.log('ok');
       }
-      if(this.vragen[3].options[3] === this.vragen[3].getCorrectOption()) {
+      if (this.vragen[3].options[3] === this.vragen[3].getCorrectOption()) {
         console.log('ok');
       }
     }
@@ -145,12 +145,13 @@ export default class Level1 extends Scene {
    * @param elapsed t
    */
   public override update(elapsed: number): void {
+
     // Hoeft niks te doen
   }
 
   public override getNextScene(): Scene {
     if (this.goToNextScene) {
-      return new OpenWereld(this.maxX, this.maxY);
+      return new OpenWereld1(this.maxX, this.maxY);
     }
     return this;
   }
@@ -161,6 +162,7 @@ export default class Level1 extends Scene {
    * @param canvas t
    */
   public override render(canvas: HTMLCanvasElement): void {
+    this.player.render(canvas);
     CanvasRenderer.fillCanvas(canvas, 'rgb(70, 106, 44)');
     CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 2.1 - this.logo.height / 2);
     CanvasRenderer.drawRectangle(canvas, 350, 100, 800, 160, 'white');
@@ -171,7 +173,7 @@ export default class Level1 extends Scene {
     CanvasRenderer.fillRectangle(canvas, 760, 160, 380, 40, 'white');
     CanvasRenderer.fillRectangle(canvas, 760, 210, 380, 40, 'white');
 
-    if(this.correctOptions0) {
+    if (this.correctOptions0) {
       CanvasRenderer.writeText(canvas, `${this.vragen[0].question}`, 365, 135, 'left', 'sans-serif', 16, 'black');
       CanvasRenderer.writeText(canvas, `${this.vragen[0].options[0]}`, 365, 190, 'left', 'sans-serif', 20, 'black');
       CanvasRenderer.writeText(canvas, `${this.vragen[0].options[1]}`, 365, 240, 'left', 'sans-serif', 20, 'black');
@@ -246,7 +248,6 @@ export default class Level1 extends Scene {
       CanvasRenderer.writeText(canvas, `${this.vragen[4].options[0]}`, 523, 505, 'left', 'sans-serif', 20, 'black');
       CanvasRenderer.writeText(canvas, `${this.vragen[4].options[1]}`, 823, 505, 'left', 'sans-serif', 20, 'black');
     }
-    this.player.render(canvas);
     this.enemie.render(canvas);
   }
 
