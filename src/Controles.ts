@@ -13,7 +13,7 @@ export default class Controles extends Scene {
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.goToNextScene = false;
-    this.logo = CanvasRenderer.loadNewImage('./assets/controlscherm.jpg');
+    this.logo = CanvasRenderer.loadNewImage('./assets/Controlsscreen 1.png');
   }
 
   /**
@@ -49,7 +49,7 @@ export default class Controles extends Scene {
    * @param canvas t
    */
   public override render(canvas: HTMLCanvasElement): void {
-    CanvasRenderer.fillCanvas(canvas, 'rgb(70, 106, 44)');
+    CanvasRenderer.fillCanvas(canvas, 'rgb(0, 0, 0)');
     CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 2 - this.logo.height / 2);
   }
 }

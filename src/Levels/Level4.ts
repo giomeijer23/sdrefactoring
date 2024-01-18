@@ -6,6 +6,7 @@ import Scene from '../Scene.js';
 import Speler from '../Speler.js';
 import Enemie from '../Enemie.js';
 import Question4 from '../Questions/Question4.js';
+import Credits from '../Credits.js';
 
 export default class Level4 extends Scene {
   private goToNextScene: boolean;
@@ -55,6 +56,9 @@ export default class Level4 extends Scene {
    * @param keyListener t
    */
   public override processInput(mouseListener: MouseListener, keyListener: KeyListener): void {
+    if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
+      this.goToNextScene = true;
+    }
     if (this.isDisplayingQuestion && this.isPlayerAnswering && !this.isDisplayingAnswerAndExplanation) {
       if (keyListener.keyPressed(KeyListener.KEY_A)) {
         this.checkAnswer(this.answers[0]);
@@ -131,7 +135,7 @@ export default class Level4 extends Scene {
 
   public override getNextScene(): Scene {
     if (this.goToNextScene) {
-      // return new (this.maxX, this.maxY);
+      return new Credits(this.maxX, this.maxY);
     }
     return this;
   }

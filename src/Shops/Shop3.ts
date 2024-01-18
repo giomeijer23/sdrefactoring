@@ -75,7 +75,7 @@ export default class Shop3 extends Scene {
     CanvasRenderer.fillCanvas(canvas, 'rgb(0, 0, 0)');
     CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 2 - this.logo.height / 2);
     if (this.textScene) {
-      const lines: string[] = ['Privacy', 'Online privacy is a fundamental aspect of personal security and autonomy in the digital realm.', 'It empowers individuals to navigate the online world with confidence,', ' knowing that their personal information is protected from unauthorized access and potential misuse.', 'Identity Protection: Safeguards against identity theft and unauthorized access,', 'preventing malicious actors from exploiting personal details for fraudulent activities.', 'Data Security: Protects sensitive data like financial records and medical information,', 'preventing unauthorized access and potential misuse.', 'Press Key F']; // Voeg elke regel tekst toe aan dit array
+      const lines: string[] = ['Use the knowledge you have from the previous information.', 'Good luck!!!', 'Press Key F']; // Voeg elke regel tekst toe aan dit array
       const x: number = canvas.width / 2;
       const y: number = canvas.height / 2;
       const textAlign: CanvasTextAlign = 'center';
