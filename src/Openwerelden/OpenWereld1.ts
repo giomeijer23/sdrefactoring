@@ -40,7 +40,7 @@ export default class OpenWereld1 extends Scene {
 
     // Define the regions on the X and Y axes
     const xRegions: { lb: number; rb: number; } = { lb: 165, rb: 230 };
-    const yRegions: { lo: number; ro: number } = { ro: 656, lo: 0 };
+    const yRegions: { lo: number; ro: number } = { ro: 660, lo: 575 };
 
 
     // Check if the mouse position is within the specified regions
