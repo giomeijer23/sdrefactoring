@@ -46,7 +46,7 @@ export default class Level4 extends Scene {
     this.isPlayerAnswering = false;
     this.isDisplayingQuestion = true;
     this.goToNextScene = false;
-    this.logo = CanvasRenderer.loadNewImage('./assets/Stone-dungeon.png');
+    this.logo = CanvasRenderer.loadNewImage('./assets/Dungeon_Boss (1).png');
   }
 
   /**
