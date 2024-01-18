@@ -6,6 +6,7 @@ import Scene from '../Scene.js';
 import Speler from '../Speler.js';
 import Enemie from '../Enemie.js';
 import Question2 from '../Questions/Question2.js';
+import OpenWereld4 from '../Openwerelden/OpenWereld4.js';
 
 export default class Level2 extends Scene {
   private goToNextScene: boolean;
@@ -55,6 +56,9 @@ export default class Level2 extends Scene {
    * @param keyListener t
    */
   public override processInput(mouseListener: MouseListener, keyListener: KeyListener): void {
+    if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
+      this.goToNextScene = true;
+    }
     if (this.isDisplayingQuestion && this.isPlayerAnswering && !this.isDisplayingAnswerAndExplanation) {
       if (keyListener.keyPressed(KeyListener.KEY_A)) {
         this.checkAnswer(this.answers[0]);
@@ -130,7 +134,7 @@ export default class Level2 extends Scene {
 
   public override getNextScene(): Scene {
     if (this.goToNextScene) {
-      // return new OpenWereld(this.maxX, this.maxY);
+      return new OpenWereld4(this.maxX, this.maxY);
     }
     return this;
   }

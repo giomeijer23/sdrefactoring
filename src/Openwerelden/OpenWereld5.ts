@@ -1,11 +1,11 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
-import Level2 from '../Levels/Level2.js';
+import Level3 from '../Levels/Level3.js';
 import MouseListener from '../MouseListener.js';
 import Scene from '../Scene.js';
 import Speler from '../Speler.js';
 
-export default class OpenWereld3 extends Scene {
+export default class OpenWereld5 extends Scene {
   private goToNextScene: boolean;
 
   private player: Speler;
@@ -22,8 +22,8 @@ export default class OpenWereld3 extends Scene {
     super(maxX, maxY);
     this.goToNextScene = false;
     this.player = new Speler(maxX, maxY);
-    this.player.setPosX(610);
-    this.player.setPosY(539);
+    this.player.setPosX(998);
+    this.player.setPosY(249);
     this.logo = CanvasRenderer.loadNewImage('./assets/controlscherm.jpg');
     this.escPressed = false;
     this.showImage = false;
@@ -37,10 +37,12 @@ export default class OpenWereld3 extends Scene {
   public override processInput(mouseListener: MouseListener, keylistener: KeyListener): void {
     const mouseX: number = mouseListener.getMousePosition().x;
     const mouseY: number = mouseListener.getMousePosition().y;
+    console.log(mouseX);
+    console.log(mouseY);
 
     // Define the regions on the X and Y axes
-    const xRegions: { lb: number; rb: number; } = { lb: 560, rb: 640 };
-    const yRegions: { lo: number; ro: number } = { ro: 280, lo: 200 };
+    const xRegions: { lb: number; rb: number; } = { lb: 960, rb: 1040 };
+    const yRegions: { lo: number; ro: number } = { ro: 600, lo: 515 };
 
 
     // Check if the mouse position is within the specified regions
@@ -100,7 +102,7 @@ export default class OpenWereld3 extends Scene {
 
   public override getNextScene(): Scene | null {
     if (this.goToNextScene) {
-      return new Level2(this.maxX, this.maxY);
+      return new Level3(this.maxX, this.maxY);
     }
     return this;
   }
