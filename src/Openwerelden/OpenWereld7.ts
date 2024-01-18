@@ -1,8 +1,8 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
+import Level4 from '../Levels/Level4.js';
 import MouseListener from '../MouseListener.js';
 import Scene from '../Scene.js';
-import Shop3 from '../Shops/Shop3.js';
 import Speler from '../Speler.js';
 
 export default class OpenWereld7 extends Scene {
@@ -100,7 +100,7 @@ export default class OpenWereld7 extends Scene {
 
   public override getNextScene(): Scene | null {
     if (this.goToNextScene) {
-      return new Shop3(this.maxX, this.maxY);
+      return new Level4(this.maxX, this.maxY);
     }
     return this;
   }
