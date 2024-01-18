@@ -1,136 +1,92 @@
 export default class Question1 {
   public static question: Question1[] = [
     {
-      question: 'Na hoeveel tijd heb je een pauze nodig als je achter een scherm zit? (computer ,nintendo switch, playstation)',
+      question: 'What is a common red flag indicating a potential phising website',
       answers: [
-        'A 60 min',
-        'B 30 min',
-        'C 120 min',
-        'D 90 min',
+        'A The website adress starts with "https://"',
+        'B The website has a professional and polished appearance',
+        'C The URL contains misspelled',
+        'D The website claims to offer exclusive deals and discounts',
       ],
-      correctAnswer: 'C 120 min',
-      explanation: 'Test',
+      correctAnswer: 'C The URL contains misspelled',
+      explanation: 'The URL contains misspelled words or random charachters',
     },
     {
-      question: 'Wat is een sterk wachtwoord?',
+      question: 'What is the purpose of clearing browser cookies and cache regularly?',
       answers: [
-        'A WZAWZDB',
-        'B HetIsPatat',
-        'C Wachtwoord',
-        'D #1Patat12?'
+        'A To speed up internet browsing',
+        'B To enhance website functionality',
+        'C To remove stored personal information and improve privacy',
+        'D To increase the risk of online tracking'
       ],
-      correctAnswer: 'D #1Patat12?',
-      explanation: 'Test1',
+      correctAnswer: 'C To remove stored personal information and improve privacy',
+      explanation: 'To remove stored personal information and improve privacy?',
     },
     {
-      question: 'Welke informatie zou je nooit met vreemden moeten delen?',
+      question: 'What is the primary purpose of a firewall in computer security?',
       answers: [
-        'A Persoonlijke informatie',
-        'B Het weer en nieuwsbericht',
-        'C Hobby',
-        'D Je mening'
+        'A To detect and remove viruses',
+        'B To prevent unauthorized acces to a network',
+        'C To encrypt sensitive data',
+        'D To optimize network performance'
       ],
-      correctAnswer: 'A Persoonlijke informatie',
-      explanation: 'Test2',
+      correctAnswer: 'B To prevent unauthorized acces to a network',
+      explanation: 'To prevent unauthorized access to a network',
     },
     {
-      question: 'Which is a characteristc of an identity thief?',
+      question: 'How does biometric authentication enhance security?',
       answers: [
-        'A They steal your clothes',
-        'B They steal personal information',
-        'C They steal your favorite sandwich',
-        'D Test'
+        'A By using physical keys for access',
+        'B By relying on something you know, like a password',
+        'C By utilizing unique physical or behavioral traits for identification',
+        'D By requiring multiple forms of identification'
       ],
-      correctAnswer: 'B They steal personal information',
-      explanation: 'Identity thieves steal personal information',
+      correctAnswer: 'C By utilizing unique physical or behavioral traits for identification',
+      explanation: 'By utilizing unique physical or behavioral traits for identification',
     },
     {
-      question: 'Which link does NOT look reliable?',
+      question: 'What is the potential risk of oversharing personal information on social media platforms?',
       answers: [
-        'A https://www.learn_for_free.com',
-        'B http://www.learn_and_practice.com',
-        'C https://www.learn_or_win.com',
-        'D https://hz.nl'
+        'A Increased online popularity',
+        'B Enhanced personal security',
+        'C Privacy invasion and targeted attacks',
+        'D mproved social connections'
       ],
-      correctAnswer: 'B http://www.learn_and_practice.com',
-      explanation: 'HTTP is not a certified website, so avoid loging into them and sharing personal information',
+      correctAnswer: 'C Privacy invasion and targeted attacks',
+      explanation: 'Privacy invasion and targeted attacks',
     },
     {
-      question: 'One of your friends sends you a weird link on instagram. What do you do?',
+      question: 'What does VPN stand for in the context of online privacy?',
       answers: [
-        'A You open it since your friend sent it to you',
-        'B You ask your friend first what the link is about',
-        'C You open it in your computer instead of your phone',
-        'D Test'
+        'A Virtual Private Network',
+        'B Very Private Navigation',
+        'C Virus Protection Network',
+        'D Visual Privacy Node'
       ],
-      correctAnswer: 'B You ask your friend first what the link is about',
-      explanation: 'First ask your friend to verify if he sent you the link since his account could have been stolen',
+      correctAnswer: 'A Virtual Private Network',
+      explanation: 'Virtual Private Network',
     },
     {
-      question: 'You get an unknown message that you have won the newest iPhone and they need your address. What do you do?',
+      question: 'What is the potential risk of using public Wi-Fi networks?',
       answers: [
-        'A You ask them to send it to your school',
-        'B You ignore it and delete the message.',
-        'C You send the address to get the iPhone quickly.',
-        'D Test'
+        'A Faster internet speed',
+        'B Increased device performance',
+        'C Unauthorized access to personal information',
+        'D Improved network security'
       ],
-      correctAnswer: 'B You ignore it and delete the message.',
-      explanation: 'Nothing is for free. This is a way identity thieves use to steal personal information.',
+      correctAnswer: 'C Unauthorized access to personal information',
+      explanation: 'Unauthorized access to personal information',
     },
     {
-      question: 'Which person could probably steal your identity online?',
+      question: 'What does HTTPS stand for in the context of web browsing?',
       answers: [
-        'A Your parents',
-        'B Your teachers',
-        'C A friend you met online',
-        'D Test'
+        'A HyperText Transfer Protocol Secure',
+        'B High-Efficiency Text Processing System',
+        'C Home Technology and Entertainment Platform',
+        'D Hyperlink Transmission System'
       ],
-      correctAnswer: 'C A friend you met online',
-      explanation: 'Do not trust or share personal information with people you met online',
-    },
-    {
-      question: 'What does identity theft mean?',
-      answers: [
-        'A It means stealing the purse of a woman when she does not see in the train',
-        'B It means to dress and act like someone else',
-        'C It means using the personal information of another person without their permission to obtain benefits',
-        'D Test '
-      ],
-      correctAnswer: 'C It means using the personal information of another person without their permission to obtain benefits',
-      explanation: 'Identity theft is using the personal information of someone else wihtout them knowing for personal gain',
-    },
-    {
-      question: 'How often is it recommended to change passwords?',
-      answers: [
-        'A Every 3 months',
-        'B Every year',
-        'C Every decade',
-        'D Never, it should be same every time'
-      ],
-      correctAnswer: 'A Every 3 months',
-      explanation: 'Cybersecurity experts recommend changing your password every 3 months not to get your account stolen',
-    },
-    {
-      question: 'Does security software solve a problem with identity theft?',
-      answers: [
-        'A Yes, every security software',
-        'B No',
-        'C Test',
-        'D Yes, but only paid security software'
-      ],
-      correctAnswer: 'B No',
-      explanation: 'To prevent from identity theft, you need basically not to give personal data to inappropiate websites',
-    },
-    {
-      question: 'Can browser additions follow your key typing or see what data you give?',
-      answers: [
-        'A Yes',
-        'B No',
-        'C Test',
-        'D It is unknown'
-      ],
-      correctAnswer: 'A Yes',
-      explanation: 'Browser additions can follow your activity, so you need to be careful with them',
+      correctAnswer: 'A HyperText Transfer Protocol Secure',
+      explanation: 'HyperText Transfer Protocol Secure',
     },
   ];
 

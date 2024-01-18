@@ -1,136 +1,114 @@
 export default class Question2 {
   public static question: Question2[] = [
     {
-      question: 'Na hoeveel tijd heb je een pauze nodig als je achter een scherm zit? (computer ,nintendo switch, playstation)',
+      question: 'Why is it important to use different passwords for various online accounts?',
       answers: [
-        'A 60 min',
-        'B 30 min',
-        'C 120 min',
-        'D 90 min',
+        'A It is not necessary; the same password can be used for convenience',
+        'B To avoid the hassle of remembering multiple passwords',
+        'C To minimize the risk of multiple accounts being compromised if one password is leaked',
+        'D To make it easier for password recovery',
       ],
-      correctAnswer: 'C 120 min',
-      explanation: 'Test',
+      correctAnswer: 'C To minimize the risk of multiple accounts being compromised if one password is leaked',
+      explanation: 'To minimize the risk of multiple accounts being compromised if one password is leaked',
     },
     {
-      question: 'Wat is een sterk wachtwoord?',
+      question: ' Which of the following is an example of a strong password policy?',
       answers: [
-        'A WZAWZDB',
-        'B HetIsPatat',
-        'C Wachtwoord',
-        'D #1Patat12?'
+        'A Allowing users to use the same password for multiple accounts',
+        'B Requiring passwords to be at least 8 characters long',
+        'C Discouraging the use of special characters in passwords',
+        'D Implementing no restrictions on password complexity'
       ],
-      correctAnswer: 'D #1Patat12?',
-      explanation: 'Test1',
+      correctAnswer: 'B Requiring passwords to be at least 8 characters long',
+      explanation: 'Requiring passwords to be at least 8 characters long',
     },
     {
-      question: 'Welke informatie zou je nooit met vreemden moeten delen?',
+      question: 'How can a passphrase be more secure than a single-word password?',
       answers: [
-        'A Persoonlijke informatie',
-        'B Het weer en nieuwsbericht',
-        'C Hobby',
-        'D Je mening'
+        'A Passphrases are always less secure',
+        'B Passphrases are easier to crack',
+        'C Passphrases are longer and include spaces between words',
+        'D Passphrases are less memorable'
       ],
-      correctAnswer: 'A Persoonlijke informatie',
-      explanation: 'Test2',
+      correctAnswer: 'C Passphrases are longer and include spaces between words',
+      explanation: 'Passphrases are longer and include spaces between words',
     },
     {
-      question: 'Which is a characteristc of an identity thief?',
+      question: 'What is the recommended frequency for changing passwords to enhance security?',
       answers: [
-        'A They steal your clothes',
-        'B They steal personal information',
-        'C They steal your favorite sandwich',
-        'D Test'
+        'A Every month',
+        'B Only when a security breach occurs',
+        'C Every few years',
+        'D Never, if the password is strong and unique'
       ],
-      correctAnswer: 'B They steal personal information',
-      explanation: 'Identity thieves steal personal information',
+      correctAnswer: 'D Never, if the password is strong and unique',
+      explanation: 'Never, if the password is strong and unique',
     },
     {
-      question: 'Which link does NOT look reliable?',
+      question: 'Which of the following password management practices is insecure',
       answers: [
-        'A https://www.learn_for_free.com',
-        'B http://www.learn_and_practice.com',
-        'C https://www.learn_or_win.com',
-        'D https://hz.nl'
+        'A Using a password manager to generate and store complex passwords',
+        'B Writing down passwords on a sticky note and keeping it on the monitor',
+        'C Changing passwords every few years',
+        'D Sharing passwords with close family members'
       ],
-      correctAnswer: 'B http://www.learn_and_practice.com',
-      explanation: 'HTTP is not a certified website, so avoid loging into them and sharing personal information',
+      correctAnswer: 'B Writing down passwords on a sticky note and keeping it on the monitor',
+      explanation: 'Writing down passwords on a sticky note and keeping it on the monitor',
     },
     {
-      question: 'One of your friends sends you a weird link on instagram. What do you do?',
+      question: 'Which of the following passwords is the most secure?',
       answers: [
-        'A You open it since your friend sent it to you',
-        'B You ask your friend first what the link is about',
-        'C You open it in your computer instead of your phone',
-        'D Test'
+        'A password123',
+        'B P@ssw0rd',
+        'C qwerty',
+        'D 123456'
       ],
-      correctAnswer: 'B You ask your friend first what the link is about',
-      explanation: 'First ask your friend to verify if he sent you the link since his account could have been stolen',
+      correctAnswer: 'B P@ssw0rd',
+      explanation: 'P@ssw0rd',
     },
     {
-      question: 'You get an unknown message that you have won the newest iPhone and they need your address. What do you do?',
+      question: 'What is a recommended practice for creating strong passwords?',
       answers: [
-        'A You ask them to send it to your school',
-        'B You ignore it and delete the message.',
-        'C You send the address to get the iPhone quickly.',
-        'D Test'
+        'A Using easily memorable phrases',
+        'B Incorporating personal information like birthdates',
+        'C Using a mix of uppercase and lowercase letters, numbers, and symbols',
+        'D Keeping the same password across multiple accounts'
       ],
-      correctAnswer: 'B You ignore it and delete the message.',
-      explanation: 'Nothing is for free. This is a way identity thieves use to steal personal information.',
+      correctAnswer: 'C Using a mix of uppercase and lowercase letters, numbers, and symbols',
+      explanation: 'Using a mix of uppercase and lowercase letters, numbers, and symbols',
     },
     {
-      question: 'Which person could probably steal your identity online?',
+      question: 'Why is it important to avoid using easily guessable passwords?',
       answers: [
-        'A Your parents',
-        'B Your teachers',
-        'C A friend you met online',
-        'D Test'
+        'A Because they are easier to remember',
+        'B To make it more challenging for unauthorized access',
+        'C They are less likely to be accepted by websites',
+        'D To confuse the user'
       ],
-      correctAnswer: 'C A friend you met online',
-      explanation: 'Do not trust or share personal information with people you met online',
+      correctAnswer: 'B To make it more challenging for unauthorized access',
+      explanation: 'To make it more challenging for unauthorized access',
     },
     {
-      question: 'What does identity theft mean?',
+      question: 'What is the purpose of Two-Factor Authentication (2FA)?',
       answers: [
-        'A It means stealing the purse of a woman when she does not see in the train',
-        'B It means to dress and act like someone else',
-        'C It means using the personal information of another person without their permission to obtain benefits',
-        'D Test '
+        'A Enhancing password security by requiring two different passwords',
+        'B Providing a second layer of verification in addition to a password',
+        'C Encrypting all data on a device',
+        'D Allowing access without any authentication'
       ],
-      correctAnswer: 'C It means using the personal information of another person without their permission to obtain benefits',
-      explanation: 'Identity theft is using the personal information of someone else wihtout them knowing for personal gain',
+      correctAnswer: 'B Providing a second layer of verification in addition to a password',
+      explanation: 'Providing a second layer of verification in addition to a password',
     },
     {
-      question: 'How often is it recommended to change passwords?',
+      question: 'Which of the following is considered a strong password practice?',
       answers: [
-        'A Every 3 months',
-        'B Every year',
-        'C Every decade',
-        'D Never, it should be same every time'
+        'A Using easily guessable words like "password123"',
+        'B Using a combination of uppercase and lowercase letters',
+        'C Sharing passwords with trusted friends',
+        'D Keeping the same password for all accounts'
       ],
-      correctAnswer: 'A Every 3 months',
-      explanation: 'Cybersecurity experts recommend changing your password every 3 months not to get your account stolen',
-    },
-    {
-      question: 'Does security software solve a problem with identity theft?',
-      answers: [
-        'A Yes, every security software',
-        'B No',
-        'C Test',
-        'D Yes, but only paid security software'
-      ],
-      correctAnswer: 'B No',
-      explanation: 'To prevent from identity theft, you need basically not to give personal data to inappropiate websites',
-    },
-    {
-      question: 'Can browser additions follow your key typing or see what data you give?',
-      answers: [
-        'A Yes',
-        'B No',
-        'C Test',
-        'D It is unknown'
-      ],
-      correctAnswer: 'A Yes',
-      explanation: 'Browser additions can follow your activity, so you need to be careful with them',
+      correctAnswer: 'B Using a combination of uppercase and lowercase letters',
+      explanation: 'Using a combination of uppercase and lowercase letters',
     },
   ];
 

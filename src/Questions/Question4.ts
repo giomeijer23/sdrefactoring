@@ -1,5 +1,5 @@
-export default class Question3 {
-  public static question: Question3[] = [
+export default class Question4 {
+  public static question: Question4[] = [
     {
       question: 'How can you verify the legitimacy of an email sender?',
       answers: [
@@ -101,5 +101,5 @@ export default class Question3 {
     }
   ];
 
-  public static dumpQuestions: Question3[] = [];
+  public static dumpQuestions: Question4[] = [];
 }
