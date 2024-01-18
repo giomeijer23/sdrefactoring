@@ -16,7 +16,7 @@ export default class Shop extends Scene {
     super(maxX, maxY);
     this.goToNextScene = false;
     this.textScene = false;
-    this.logo = CanvasRenderer.loadNewImage('./assets/NPC_grass_house 2.png');
+    this.logo = CanvasRenderer.loadNewImage('./assets/NPC_grass_house 3.png');
   }
 
   /**

@@ -1,11 +1,11 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
-import Level1 from '../Levels/Level1.js';
 import MouseListener from '../MouseListener.js';
 import Scene from '../Scene.js';
+import Shop1 from '../Shops/Shop1.js';
 import Speler from '../Speler.js';
 
-export default class OpenWereld1 extends Scene {
+export default class OpenWereld3 extends Scene {
   private goToNextScene: boolean;
 
   private player: Speler;
@@ -22,8 +22,8 @@ export default class OpenWereld1 extends Scene {
     super(maxX, maxY);
     this.goToNextScene = false;
     this.player = new Speler(maxX, maxY);
-    this.player.setPosX(198);
-    this.player.setPosY(424);
+    this.player.setPosX(610);
+    this.player.setPosY(539);
     this.logo = CanvasRenderer.loadNewImage('./assets/controlscherm.jpg');
     this.escPressed = false;
     this.showImage = false;
@@ -32,15 +32,17 @@ export default class OpenWereld1 extends Scene {
   /**
    *
    * @param mouseListener -
-   * @param keyListener t
+   * @param keylistener -
    */
-  public override processInput(mouseListener: MouseListener, keyListener: KeyListener): void {
+  public override processInput(mouseListener: MouseListener, keylistener: KeyListener): void {
     const mouseX: number = mouseListener.getMousePosition().x;
     const mouseY: number = mouseListener.getMousePosition().y;
+    console.log(mouseX);
+    console.log(mouseY);
 
     // Define the regions on the X and Y axes
-    const xRegions: { lb: number; rb: number; } = { lb: 165, rb: 230 };
-    const yRegions: { lo: number; ro: number } = { ro: 656, lo: 0 };
+    const xRegions: { lb: number; rb: number; } = { lb: 560, rb: 640 };
+    const yRegions: { lo: number; ro: number } = { ro: 280, lo: 200 };
 
 
     // Check if the mouse position is within the specified regions
@@ -52,10 +54,10 @@ export default class OpenWereld1 extends Scene {
         this.textScene = true;
       }
     }
-    if (keyListener.isKeyDown('KeyE')) {
+    if (keylistener.isKeyDown('KeyE')) {
       this.goToNextScene = true;
     }
-    if (keyListener.isKeyDown(KeyListener.KEY_ESC)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_ESC)) {
       if (!this.escPressed) {
         // Toggle de zichtbaarheid van het plaatje
         this.showImage = !this.showImage;
@@ -64,28 +66,28 @@ export default class OpenWereld1 extends Scene {
     } else {
       this.escPressed = false;
     }
-    if (keyListener.isKeyDown(KeyListener.KEY_UP)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_UP)) {
       this.player.moveUp();
     }
-    if (keyListener.isKeyDown(KeyListener.KEY_DOWN)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_DOWN)) {
       this.player.moveDown();
     }
-    if (keyListener.isKeyDown(KeyListener.KEY_LEFT)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_LEFT)) {
       this.player.moveLeft();
     }
-    if (keyListener.isKeyDown(KeyListener.KEY_RIGHT)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_RIGHT)) {
       this.player.moveRight();
     }
-    if (keyListener.isKeyDown(KeyListener.KEY_W)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_W)) {
       this.player.moveUp();
     }
-    if (keyListener.isKeyDown(KeyListener.KEY_S)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_S)) {
       this.player.moveDown();
     }
-    if (keyListener.isKeyDown(KeyListener.KEY_A)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_A)) {
       this.player.moveLeft();
     }
-    if (keyListener.isKeyDown(KeyListener.KEY_D)) {
+    if (keylistener.isKeyDown(KeyListener.KEY_D)) {
       this.player.moveRight();
     }
   }
@@ -100,7 +102,7 @@ export default class OpenWereld1 extends Scene {
 
   public override getNextScene(): Scene | null {
     if (this.goToNextScene) {
-      return new Level1(this.maxX, this.maxY);
+      return new Shop1(this.maxX, this.maxY);
     }
     return this;
   }
@@ -112,7 +114,7 @@ export default class OpenWereld1 extends Scene {
   public override render(canvas: HTMLCanvasElement): void {
     this.player.render(canvas);
     if (this.textScene) {
-      CanvasRenderer.writeText(canvas, 'Druk op toets E', canvas.width / 2, canvas.height / 2, 'center', 'arial', 50, 'gold');
+      CanvasRenderer.writeText(canvas, 'Press Key E', canvas.width / 2, canvas.height / 2, 'center', 'arial', 50, 'gold');
 
       const displayDuration: number = 3000;
 

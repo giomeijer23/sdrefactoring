@@ -12,11 +12,22 @@ export default class OpenWereld extends Scene {
 
   private player: Speler;
 
+  private escPressed: boolean;
+
+  private showImage: boolean;
+
+  private logo: HTMLImageElement;
+
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.goToNextScene = false;
     this.textScene = false;
     this.player = new Speler(maxX, maxY);
+    this.player.setPosX(194);
+    this.player.setPosY(261);
+    this.logo = CanvasRenderer.loadNewImage('./assets/controlscherm.jpg');
+    this.escPressed = false;
+    this.showImage = false;
   }
 
   /**
@@ -41,6 +52,15 @@ export default class OpenWereld extends Scene {
       if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
         this.textScene = true;
       }
+    }
+    if (keyListener.isKeyDown(KeyListener.KEY_ESC)) {
+      if (!this.escPressed) {
+        // Toggle de zichtbaarheid van het plaatje
+        this.showImage = !this.showImage;
+        this.escPressed = true;
+      }
+    } else {
+      this.escPressed = false;
     }
     if (keyListener.isKeyDown('KeyE')) {
       this.goToNextScene = true;
@@ -101,6 +121,10 @@ export default class OpenWereld extends Scene {
       setTimeout(() => {
         this.textScene = false;
       }, displayDuration);
+    }
+    if (this.showImage) {
+      // eslint-disable-next-line max-len
+      CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 2 - this.logo.height / 2);
     }
   }
 }

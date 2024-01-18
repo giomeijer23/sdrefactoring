@@ -25,6 +25,23 @@ export default class Speler extends CanvasItem {
     this.maxY = maxY;
   }
 
+  public override getPosX(): number {
+    return this.posX;
+  }
+
+  public setPosX(newPosX: number): void {
+    this.posX = newPosX;
+  }
+
+  // Getter and Setter for posY
+  public override getPosY(): number {
+    return this.posY;
+  }
+
+  public setPosY(newPosY: number): void {
+    this.posY = newPosY;
+  }
+
   // Movement methods
   /**
    *
