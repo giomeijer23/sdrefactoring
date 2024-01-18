@@ -2,10 +2,18 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
 import MouseListener from '../MouseListener.js';
-import OpenWereld1 from '../Openwerelden/OpenWereld1.js';
+import OpenWereld3 from '../Openwerelden/OpenWereld3.js';
 import Scene from '../Scene.js';
 
-export default class Shop extends Scene {
+export default class Shop1 extends Scene {
+  /**
+   *
+   * @param elapsed -
+   */
+  public override update(elapsed: number): void {
+
+  }
+
   private logo: HTMLImageElement;
 
   private goToNextScene: boolean;
@@ -16,15 +24,16 @@ export default class Shop extends Scene {
     super(maxX, maxY);
     this.goToNextScene = false;
     this.textScene = false;
-    this.logo = CanvasRenderer.loadNewImage('./assets/NPC_grass_house 3.png');
+    this.logo = CanvasRenderer.loadNewImage('./assets/NPC_sand_house 3.png');
   }
+
 
   /**
    *
    * @param mouseListener t
-   * @param keyListener t
+   * @param keylistener t
    */
-  public override processInput(mouseListener: MouseListener, keyListener: KeyListener): void {
+  public override processInput(mouseListener: MouseListener, keylistener: KeyListener): void {
     const mouseX: number = mouseListener.getMousePosition().x;
     const mouseY: number = mouseListener.getMousePosition().y;
 
@@ -40,27 +49,20 @@ export default class Shop extends Scene {
         this.textScene = true;
       }
     }
-    if (keyListener.keyPressed(KeyListener.KEY_ENTER)) {
+    if (keylistener.keyPressed(KeyListener.KEY_ENTER)) {
       this.goToNextScene = true;
     }
-    if (keyListener.keyPressed(KeyListener.KEY_SPACE)) {
+    if (keylistener.keyPressed(KeyListener.KEY_SPACE)) {
       this.goToNextScene = true;
     }
-    if (keyListener.keyPressed(KeyListener.KEY_F)) {
+    if (keylistener.keyPressed(KeyListener.KEY_F)) {
       this.textScene = false;
     }
   }
 
-  /**
-   *
-   * @param elapsed t
-   */
-  public override update(elapsed: number): void {
-  }
-
   public override getNextScene(): Scene | null {
     if (this.goToNextScene) {
-      return new OpenWereld1(this.maxX, this.maxY);
+      return new OpenWereld3(this.maxX, this.maxY);
     }
     return this;
   }
@@ -73,7 +75,7 @@ export default class Shop extends Scene {
     CanvasRenderer.fillCanvas(canvas, 'rgb(0, 0, 0)');
     CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 2 - this.logo.height / 2);
     if (this.textScene) {
-      const lines: string[] = ['Online privacy is essential for personal security in the digital realm,', ' ensuring confidence in protecting personal information from unauthorized access.', ' It includes identity protection against theft and securing sensitive data like financial and medical records.', ' Cookies and tracking technologies enhance online experiences but raise privacy concerns.', ' Users must manage cookie settings and be aware of tracking practices', ' for a balanced approach to personalization and privacy.', ' Firewalls are crucial in network security, acting as a barrier between trusted internal networks and the internet.', ' They monitor and control traffic, preventing unauthorized access and ensuring the confidentiality of sensitive data.', 'Press Key F']; // Voeg elke regel tekst toe aan dit array
+      const lines: string[] = ['A strong password is vital for security,', ' with key elements including length (at least 12 characters),', ' complexity (mix of uppercase, lowercase, numbers, and special characters),', ' and unpredictability, avoiding easily guessable details like names or birthdays.', ' It is crucial to steer clear of dictionary words, as attackers often use dictionary attacks.', ' Maintaining uniqueness by using different passwords for each account', ' minimizes the impact of potential breaches.', ' Additionally, avoid incorporating easily obtainable personal information,', ' such as your name or email address, in the password.', 'Press Key F']; // Voeg elke regel tekst toe aan dit array
       const x: number = canvas.width / 2;
       const y: number = canvas.height / 2;
       const textAlign: CanvasTextAlign = 'center';
@@ -116,4 +118,3 @@ export default class Shop extends Scene {
     }
   }
 }
-
