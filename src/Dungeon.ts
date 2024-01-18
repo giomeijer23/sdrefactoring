@@ -28,8 +28,7 @@ export default class Dungeon extends Game {
    *
    */
   public processInput(): void {
-    this.currentScene.processInput(this.mouseListener);
-    this.currentScene.processInput2(this.keylistener);
+    this.currentScene.processInput(this.mouseListener, this.keylistener);
   }
 
   /**

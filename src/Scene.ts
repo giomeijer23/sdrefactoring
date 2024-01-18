@@ -11,9 +11,7 @@ export default abstract class Scene {
     this.maxY = maxY;
   }
 
-  public abstract processInput(mouseListener: MouseListener): void;
-
-  public abstract processInput2(keylistener: KeyListener): void;
+  public abstract processInput(mouseListener: MouseListener, keyListener: KeyListener): void;
 
   public abstract update(elapsed: number): void;
 

@@ -19,14 +19,10 @@ export default class Startscherm extends Scene {
    *
    * @param mouseListener t
    */
-  public override processInput(mouseListener: MouseListener): void {
+  public override processInput(mouseListener: MouseListener, keyListener: KeyListener): void {
     if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
       this.goToNextScene = true;
     }
-  }
-
-  public override processInput2(keylistener: KeyListener): void {
-
   }
 
   /**

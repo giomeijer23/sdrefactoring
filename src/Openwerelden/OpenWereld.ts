@@ -22,8 +22,9 @@ export default class OpenWereld extends Scene {
   /**
    *
    * @param mouseListener -
+   * @param keyListener t
    */
-  public override processInput(mouseListener: MouseListener): void {
+  public override processInput(mouseListener: MouseListener, keyListener: KeyListener): void {
     const mouseX: number = mouseListener.getMousePosition().x;
     const mouseY: number = mouseListener.getMousePosition().y;
 
@@ -41,38 +42,31 @@ export default class OpenWereld extends Scene {
         this.textScene = true;
       }
     }
-  }
-
-  /**
-   *
-   * @param keylistener -
-   */
-  public override processInput2(keylistener: KeyListener): void {
-    if (keylistener.isKeyDown('KeyE')) {
+    if (keyListener.isKeyDown('KeyE')) {
       this.goToNextScene = true;
     }
-    if (keylistener.isKeyDown(KeyListener.KEY_UP)) {
+    if (keyListener.isKeyDown(KeyListener.KEY_UP)) {
       this.player.moveUp();
     }
-    if (keylistener.isKeyDown(KeyListener.KEY_DOWN)) {
+    if (keyListener.isKeyDown(KeyListener.KEY_DOWN)) {
       this.player.moveDown();
     }
-    if (keylistener.isKeyDown(KeyListener.KEY_LEFT)) {
+    if (keyListener.isKeyDown(KeyListener.KEY_LEFT)) {
       this.player.moveLeft();
     }
-    if (keylistener.isKeyDown(KeyListener.KEY_RIGHT)) {
+    if (keyListener.isKeyDown(KeyListener.KEY_RIGHT)) {
       this.player.moveRight();
     }
-    if (keylistener.isKeyDown(KeyListener.KEY_W)) {
+    if (keyListener.isKeyDown(KeyListener.KEY_W)) {
       this.player.moveUp();
     }
-    if (keylistener.isKeyDown(KeyListener.KEY_S)) {
+    if (keyListener.isKeyDown(KeyListener.KEY_S)) {
       this.player.moveDown();
     }
-    if (keylistener.isKeyDown(KeyListener.KEY_A)) {
+    if (keyListener.isKeyDown(KeyListener.KEY_A)) {
       this.player.moveLeft();
     }
-    if (keylistener.isKeyDown(KeyListener.KEY_D)) {
+    if (keyListener.isKeyDown(KeyListener.KEY_D)) {
       this.player.moveRight();
     }
   }
