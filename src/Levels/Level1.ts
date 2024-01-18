@@ -1,12 +1,12 @@
 /*  eslint-disable max-len */
-import CanvasRenderer from './CanvasRenderer.js';
-import KeyListener from './KeyListener.js';
-import MouseListener from './MouseListener.js';
-import Scene from './Scene.js';
-import Speler from './Speler.js';
-import Enemie from './Enemie.js';
-import Question from './Question.js';
-import OpenWereld from './Openwerelden/OpenWereld.js';
+import CanvasRenderer from '../CanvasRenderer.js';
+import KeyListener from '../KeyListener.js';
+import MouseListener from '../MouseListener.js';
+import Scene from '../Scene.js';
+import Speler from '../Speler.js';
+import Enemie from '../Enemie.js';
+import Question from '../Questions/Question.js';
+import OpenWereld from '../Openwerelden/OpenWereld.js';
 
 export default class Level1 extends Scene {
   private goToNextScene: boolean;
