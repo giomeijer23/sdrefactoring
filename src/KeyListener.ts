@@ -135,6 +135,7 @@ export default class KeyListener {
   private keyDown: Record<string, boolean> = {};
 
   private keyPressedQueried: Record<string, boolean> = {};
+  static keyPressed: any;
 
   /**
    * Constructs a new KeyListener.

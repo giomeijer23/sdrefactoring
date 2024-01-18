@@ -2,7 +2,7 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
 import MouseListener from '../MouseListener.js';
-import OpenWereld1 from '../OpenWerelden/OpenWereld1.js';
+import OpenWereld1 from '../Openwerelden/OpenWereld1.js';
 import Scene from '../Scene.js';
 
 export default class Shop extends Scene {
@@ -22,8 +22,9 @@ export default class Shop extends Scene {
   /**
    *
    * @param mouseListener t
+   * @param keyListener t
    */
-  public override processInput(mouseListener: MouseListener): void {
+  public override processInput(mouseListener: MouseListener, keyListener: KeyListener): void {
     const mouseX: number = mouseListener.getMousePosition().x;
     const mouseY: number = mouseListener.getMousePosition().y;
 
@@ -39,18 +40,10 @@ export default class Shop extends Scene {
         this.textScene = true;
       }
     }
-  }
-
-
-  /**
-   *
-   * @param keylistener t
-   */
-  public override processInput2(keylistener: KeyListener): void {
-    if (keylistener.keyPressed(KeyListener.KEY_ENTER)) {
+    if (keyListener.keyPressed(KeyListener.KEY_ENTER)) {
       this.goToNextScene = true;
     }
-    if (keylistener.keyPressed(KeyListener.KEY_SPACE)) {
+    if (keyListener.keyPressed(KeyListener.KEY_SPACE)) {
       this.goToNextScene = true;
     }
   }

@@ -6,7 +6,7 @@ import Scene from './Scene.js';
 import Vragen from './Vragen.js';
 import Speler from './Speler.js';
 import Enemie from './Enemie.js';
-import OpenWereld1 from './OpenWerelden/OpenWereld1.js';
+import OpenWereld1 from './Openwerelden/OpenWereld1.js';
 
 export default class Level1 extends Scene {
   private goToNextScene: boolean;
@@ -63,79 +63,72 @@ export default class Level1 extends Scene {
    *
    * @param mouseListener t
    */
-  public override processInput(mouseListener: MouseListener): void {
+  public override processInput(mouseListener: MouseListener, keyListener: KeyListener): void {
     if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
       this.goToNextScene = true;
-    }
-  }
-
-  /**
-   *
-   * @param keylistener t
-   */
-  public override processInput2(keylistener: KeyListener): void {
-    if (keylistener.keyPressed(KeyListener.KEY_A)) {
-      if (this.vragen[0].options[0] === this.vragen[0].getCorrectOption()) {
-        console.log('ok');
-      }
-      if (this.vragen[1].options[0] === this.vragen[1].getCorrectOption()) {
-        console.log('ok');
-      }
-      if (this.correctOptions1) {
-        if (this.vragen[2].options[0] === this.vragen[2].getCorrectOption()) {
-          this.correctOptions2 = true;
+      if (keyListener.keyPressed(KeyListener.KEY_A)) {
+        if (this.vragen[0].options[0] === this.vragen[0].getCorrectOption()) {
+          console.log('ok');
+        }
+        if (this.vragen[1].options[0] === this.vragen[1].getCorrectOption()) {
+          console.log('ok');
+        }
+        if (this.correctOptions1) {
+          if (this.vragen[2].options[0] === this.vragen[2].getCorrectOption()) {
+            this.correctOptions2 = true;
+          }
+        }
+        if (this.vragen[3].options[0] === this.vragen[3].getCorrectOption()) {
+          console.log('ok');
         }
       }
-      if (this.vragen[3].options[0] === this.vragen[3].getCorrectOption()) {
-        console.log('ok');
-      }
-    }
-    if (keylistener.keyPressed(KeyListener.KEY_B)) {
-      if (this.vragen[0].options[1] === this.vragen[0].getCorrectOption()) {
-        console.log('ok');
-      }
-      if (this.vragen[1].options[1] === this.vragen[1].getCorrectOption()) {
-        console.log('ok');
-      }
-      if (this.vragen[2].options[1] === this.vragen[2].getCorrectOption()) {
-        console.log('ok');
-      }
-      if (this.correctOptions2) {
-        if (this.vragen[3].options[1] === this.vragen[3].getCorrectOption()) {
-          this.correctOptions3 = true;
+      if (keyListener.keyPressed(KeyListener.KEY_B)) {
+        if (this.vragen[0].options[1] === this.vragen[0].getCorrectOption()) {
+          console.log('ok');
+        }
+        if (this.vragen[1].options[1] === this.vragen[1].getCorrectOption()) {
+          console.log('ok');
+        }
+        if (this.vragen[2].options[1] === this.vragen[2].getCorrectOption()) {
+          console.log('ok');
+        }
+        if (this.correctOptions2) {
+          if (this.vragen[3].options[1] === this.vragen[3].getCorrectOption()) {
+            this.correctOptions3 = true;
+          }
         }
       }
-    }
-    if (keylistener.keyPressed(KeyListener.KEY_C)) {
-      if (this.correctOptions0) {
-        if (this.vragen[0].options[2] === this.vragen[0].getCorrectOption()) {
-          this.correctOptions = true;
+      if (keyListener.keyPressed(KeyListener.KEY_C)) {
+        if (this.correctOptions0) {
+          if (this.vragen[0].options[2] === this.vragen[0].getCorrectOption()) {
+            this.correctOptions = true;
+          }
+        }
+        if (this.vragen[1].options[2] === this.vragen[1].getCorrectOption()) {
+          console.log('ok');
+        }
+        if (this.vragen[2].options[2] === this.vragen[2].getCorrectOption()) {
+          console.log('ok');
+        }
+        if (this.vragen[3].options[2] === this.vragen[3].getCorrectOption()) {
+          console.log('ok');
         }
       }
-      if (this.vragen[1].options[2] === this.vragen[1].getCorrectOption()) {
-        console.log('ok');
-      }
-      if (this.vragen[2].options[2] === this.vragen[2].getCorrectOption()) {
-        console.log('ok');
-      }
-      if (this.vragen[3].options[2] === this.vragen[3].getCorrectOption()) {
-        console.log('ok');
-      }
-    }
-    if (keylistener.keyPressed(KeyListener.KEY_D)) {
-      if (this.vragen[0].options[3] === this.vragen[0].getCorrectOption()) {
-        console.log('ok');
-      }
-      if (this.correctOptions) {
-        if (this.vragen[1].options[3] === this.vragen[1].getCorrectOption()) {
-          this.correctOptions1 = true;
+      if (keyListener.keyPressed(KeyListener.KEY_D)) {
+        if (this.vragen[0].options[3] === this.vragen[0].getCorrectOption()) {
+          console.log('ok');
         }
-      }
-      if (this.vragen[2].options[3] === this.vragen[2].getCorrectOption()) {
-        console.log('ok');
-      }
-      if (this.vragen[3].options[3] === this.vragen[3].getCorrectOption()) {
-        console.log('ok');
+        if (this.correctOptions) {
+          if (this.vragen[1].options[3] === this.vragen[1].getCorrectOption()) {
+            this.correctOptions1 = true;
+          }
+        }
+        if (this.vragen[2].options[3] === this.vragen[2].getCorrectOption()) {
+          console.log('ok');
+        }
+        if (this.vragen[3].options[3] === this.vragen[3].getCorrectOption()) {
+          console.log('ok');
+        }
       }
     }
   }
@@ -145,7 +138,6 @@ export default class Level1 extends Scene {
    * @param elapsed t
    */
   public override update(elapsed: number): void {
-
     // Hoeft niks te doen
   }
 
