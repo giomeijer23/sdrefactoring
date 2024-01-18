@@ -37,8 +37,6 @@ export default class OpenWereld4 extends Scene {
   public override processInput(mouseListener: MouseListener, keylistener: KeyListener): void {
     const mouseX: number = mouseListener.getMousePosition().x;
     const mouseY: number = mouseListener.getMousePosition().y;
-    console.log(mouseX);
-    console.log(mouseY);
 
     // Define the regions on the X and Y axes
     const xRegions: { lb: number; rb: number; } = { lb: 940, rb: 1055 };
