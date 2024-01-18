@@ -1,14 +1,13 @@
-/*  eslint-disable max-len */
+/* eslint-disable max-len */
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
 import MouseListener from '../MouseListener.js';
 import Scene from '../Scene.js';
 import Speler from '../Speler.js';
 import Enemie from '../Enemie.js';
-import Question from '../Questions/Question1.js';
-import OpenWereld from '../Openwerelden/OpenWereld.js';
+import Question2 from '../Questions/Question2.js';
 
-export default class Level1 extends Scene {
+export default class Level2 extends Scene {
   private goToNextScene: boolean;
 
   private player: Speler;
@@ -25,9 +24,9 @@ export default class Level1 extends Scene {
 
   private isAnswerCorrect: boolean;
 
-  private questions: Question[] = [];
+  private questions: Question2[] = [];
 
-  private dumpQuestions: Question[] = [];
+  private dumpQuestions: Question2[] = [];
 
   private currentQuestion: string;
 
@@ -41,13 +40,13 @@ export default class Level1 extends Scene {
     super(maxX, maxY);
     this.enemie = new Enemie(maxX, maxY);
     this.player = new Speler(maxX, maxY);
-    this.questions = Question.question;
-    this.dumpQuestions = Question.dumpQuestions;
+    this.questions = Question2.question;
+    this.dumpQuestions = Question2.dumpQuestions;
     this.isDisplayingAnswerAndExplanation = false;
     this.isPlayerAnswering = false;
     this.isDisplayingQuestion = true;
     this.goToNextScene = false;
-    this.logo = CanvasRenderer.loadNewImage('./assets/Grass-dungeon.png');
+    this.logo = CanvasRenderer.loadNewImage('./assets/Sand-dungeon.png');
   }
 
   /**
@@ -99,7 +98,7 @@ export default class Level1 extends Scene {
 
     if (this.questions.length <= 0) {
       // If the main list is empty, refill it from dumpQuestions
-      this.dumpQuestions.forEach((dumpQuestion: Question) => {
+      this.dumpQuestions.forEach((dumpQuestion: Question2) => {
         this.questions.push(...Object.values(dumpQuestion));
       });
       this.dumpQuestions = [];
@@ -121,7 +120,7 @@ export default class Level1 extends Scene {
       this.isDisplayingAnswerAndExplanation = false;
       this.dumpQuestions.push(this.questions.splice(randomNumber, 1));
       if (this.questions.length <= 0) {
-        this.dumpQuestions.forEach((dumpQuestion: Question) => {
+        this.dumpQuestions.forEach((dumpQuestion: Question2) => {
           this.questions.push(...Object.values(dumpQuestion));
         });
         this.dumpQuestions = [];
@@ -131,7 +130,7 @@ export default class Level1 extends Scene {
 
   public override getNextScene(): Scene {
     if (this.goToNextScene) {
-      return new OpenWereld(this.maxX, this.maxY);
+      // return new OpenWereld(this.maxX, this.maxY);
     }
     return this;
   }
