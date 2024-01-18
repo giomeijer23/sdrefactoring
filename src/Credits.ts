@@ -1,10 +1,10 @@
 import MouseListener from './MouseListener.js';
 import CanvasRenderer from './CanvasRenderer.js';
 import Scene from './Scene.js';
-import Controles from './Controles.js';
 import KeyListener from './KeyListener.js';
+import Startscherm from './Startscherm.js';
 
-export default class Startscherm extends Scene {
+export default class Credits extends Scene {
   private logo: HTMLImageElement;
 
   private goToNextScene: boolean;
@@ -12,13 +12,15 @@ export default class Startscherm extends Scene {
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.goToNextScene = false;
-    this.logo = CanvasRenderer.loadNewImage('./assets/Click to start.png');
+    this.logo = CanvasRenderer.loadNewImage('./assets/CreditsScene.png');
   }
 
   /**
    *
    * @param mouseListener t
+   * @param keyListener -
    */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public override processInput(mouseListener: MouseListener, keyListener: KeyListener): void {
     if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
       this.goToNextScene = true;
@@ -29,12 +31,13 @@ export default class Startscherm extends Scene {
    *
    * @param elapsed t
    */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars, class-methods-use-this
   public override update(elapsed: number): void {
   }
 
   public override getNextScene(): Scene | null {
     if (this.goToNextScene) {
-      return new Controles(this.maxX, this.maxY);
+      return new Startscherm(this.maxX, this.maxY);
     }
     return this;
   }

@@ -25,7 +25,7 @@ export default class OpenWereld extends Scene {
     this.player = new Speler(maxX, maxY);
     this.player.setPosX(194);
     this.player.setPosY(261);
-    this.logo = CanvasRenderer.loadNewImage('./assets/controlscherm.jpg');
+    this.logo = CanvasRenderer.loadNewImage('./assets/Controlsscreen 1.png');
     this.escPressed = false;
     this.showImage = false;
   }
