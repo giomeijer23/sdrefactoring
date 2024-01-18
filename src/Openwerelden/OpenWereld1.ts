@@ -1,6 +1,6 @@
 import CanvasRenderer from '../CanvasRenderer.js';
 import KeyListener from '../KeyListener.js';
-import Level1 from '../Level1.js';
+import Level1 from '../Levels/Level1.js';
 import MouseListener from '../MouseListener.js';
 import Scene from '../Scene.js';
 import Speler from '../Speler.js';

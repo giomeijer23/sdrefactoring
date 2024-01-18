@@ -1,5 +1,5 @@
-export default class Question {
-  public static question: Question[] = [
+export default class Question3 {
+  public static question: Question3[] = [
     {
       question: 'Na hoeveel tijd heb je een pauze nodig als je achter een scherm zit? (computer ,nintendo switch, playstation)',
       answers: [
@@ -133,6 +133,6 @@ export default class Question {
       explanation: 'Browser additions can follow your activity, so you need to be careful with them',
     },
   ];
-  
-  public static dumpQuestions: Question[] = [];
+
+  public static dumpQuestions: Question3[] = [];
 }
