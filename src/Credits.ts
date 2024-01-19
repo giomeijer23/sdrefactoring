@@ -22,7 +22,10 @@ export default class Credits extends Scene {
    */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public override processInput(mouseListener: MouseListener, keyListener: KeyListener): void {
-    if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
+    if (keyListener.keyPressed(KeyListener.KEY_ENTER)) {
+      this.goToNextScene = true;
+    }
+    if (keyListener.keyPressed(KeyListener.KEY_SPACE)) {
       this.goToNextScene = true;
     }
   }
