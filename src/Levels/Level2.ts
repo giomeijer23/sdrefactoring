@@ -148,29 +148,31 @@ export default class Level2 extends Scene {
     CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 2.1 - this.logo.height / 2);
 
     if (this.isDisplayingQuestion) {
-      CanvasRenderer.drawRectangle(canvas, 350, 100, 800, 160, 'white');
-      CanvasRenderer.fillRectangle(canvas, 350, 100, 800, 160, 'black');
-      CanvasRenderer.fillRectangle(canvas, 360, 110, 780, 40, 'white');
-      CanvasRenderer.fillRectangle(canvas, 360, 160, 380, 40, 'white');
-      CanvasRenderer.fillRectangle(canvas, 360, 210, 380, 40, 'white');
-      CanvasRenderer.fillRectangle(canvas, 760, 160, 380, 40, 'white');
-      CanvasRenderer.fillRectangle(canvas, 760, 210, 380, 40, 'white');
+      CanvasRenderer.drawRectangle(canvas, 350, 100, 900, 260, 'white');
+      CanvasRenderer.fillRectangle(canvas, 350, 100, 900, 260, 'black');
+      CanvasRenderer.fillRectangle(canvas, 360, 110, 880, 40, 'white');
+      CanvasRenderer.fillRectangle(canvas, 360, 160, 880, 40, 'white');
+      CanvasRenderer.fillRectangle(canvas, 360, 210, 880, 40, 'white');
+      CanvasRenderer.fillRectangle(canvas, 360, 260, 880, 40, 'white');
+      CanvasRenderer.fillRectangle(canvas, 360, 310, 880, 40, 'white');
       CanvasRenderer.writeText(canvas, `${this.currentQuestion}`, 365, 135, 'left', 'sans-serif', 16, 'black');
       CanvasRenderer.writeText(canvas, `${this.answers[0]}`, 365, 190, 'left', 'sans-serif', 20, 'black');
       CanvasRenderer.writeText(canvas, `${this.answers[1]}`, 365, 240, 'left', 'sans-serif', 20, 'black');
-      CanvasRenderer.writeText(canvas, `${this.answers[2]}`, 765, 190, 'left', 'sans-serif', 20, 'black');
-      CanvasRenderer.writeText(canvas, `${this.answers[3]}`, 765, 240, 'left', 'sans-serif', 20, 'black');
+      CanvasRenderer.writeText(canvas, `${this.answers[2]}`, 365, 290, 'left', 'sans-serif', 20, 'black');
+      CanvasRenderer.writeText(canvas, `${this.answers[3]}`, 365, 340, 'left', 'sans-serif', 20, 'black');
 
       if (this.isDisplayingAnswerAndExplanation) {
         if (this.isAnswerCorrect) {
-          CanvasRenderer.fillRectangle(canvas, 350, 261, 800, 100, 'black');
-          CanvasRenderer.writeText(canvas, 'Correct Answer', 365, 280, 'left', 'sans-serif', 20, 'green');
+          CanvasRenderer.drawRectangle(canvas, 350, 363, 900, 100, 'Green');
+          CanvasRenderer.fillRectangle(canvas, 350, 363, 900, 100, 'black');
+          CanvasRenderer.writeText(canvas, 'Correct Answer', 365, 385, 'left', 'sans-serif', 20, 'green');
         } else {
-          CanvasRenderer.fillRectangle(canvas, 350, 261, 800, 100, 'black');
-          CanvasRenderer.writeText(canvas, 'Wrong Answer', 365, 280, 'left', 'sans-serif', 20, 'red');
+          CanvasRenderer.drawRectangle(canvas, 350, 363, 900, 100, 'Red');
+          CanvasRenderer.fillRectangle(canvas, 350, 363, 900, 100, 'black');
+          CanvasRenderer.writeText(canvas, 'Wrong Answer', 365, 385, 'left', 'sans-serif', 20, 'red');
         }
-        CanvasRenderer.writeText(canvas, `${this.explanation}`, 365, 300, 'left', 'sans-serif', 20, 'white');
-        CanvasRenderer.writeText(canvas, 'Press Enter to continue', 365, 320, 'left', 'sans-serif', 20, 'yellow');
+        CanvasRenderer.writeText(canvas, `${this.explanation}`, 365, 415, 'left', 'sans-serif', 20, 'white');
+        CanvasRenderer.writeText(canvas, 'Press Enter to continue', 365, 445, 'left', 'sans-serif', 20, 'yellow');
       }
     }
   }
