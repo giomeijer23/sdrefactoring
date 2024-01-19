@@ -37,6 +37,12 @@ export default class Level1 extends Scene {
 
   private explanation: string;
 
+  private escPressed: boolean;
+
+  private showImage: boolean;
+
+  private image: HTMLImageElement;
+
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.enemie = new Enemie(maxX, maxY);
@@ -48,6 +54,9 @@ export default class Level1 extends Scene {
     this.isDisplayingQuestion = true;
     this.goToNextScene = false;
     this.logo = CanvasRenderer.loadNewImage('./assets/Grass-dungeon.png');
+    this.image = CanvasRenderer.loadNewImage('./assets/Controlsscreen 1.png');
+    this.escPressed = false;
+    this.showImage = false;
   }
 
   /**
@@ -56,6 +65,15 @@ export default class Level1 extends Scene {
    * @param keyListener t
    */
   public override processInput(mouseListener: MouseListener, keyListener: KeyListener): void {
+    if (keyListener.isKeyDown(KeyListener.KEY_ESC)) {
+      if (!this.escPressed) {
+        // Toggle de zichtbaarheid van het plaatje
+        this.showImage = !this.showImage;
+        this.escPressed = true;
+      }
+    } else {
+      this.escPressed = false;
+    }
     if (mouseListener.buttonPressed(MouseListener.BUTTON_LEFT)) {
       this.goToNextScene = true;
     }
@@ -174,6 +192,10 @@ export default class Level1 extends Scene {
         CanvasRenderer.writeText(canvas, `${this.explanation}`, 365, 415, 'left', 'sans-serif', 20, 'white');
         CanvasRenderer.writeText(canvas, 'Press Enter to continue', 365, 445, 'left', 'sans-serif', 20, 'yellow');
       }
+    }
+    if (this.showImage) {
+      // eslint-disable-next-line max-len
+      CanvasRenderer.drawImage(canvas, this.image, canvas.width / 2 - this.image.width / 2, canvas.height / 2 - this.image.height / 2);
     }
   }
 }

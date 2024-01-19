@@ -12,11 +12,20 @@ export default class Shop extends Scene {
 
   private textScene: boolean;
 
+  private escPressed: boolean;
+
+  private showImage: boolean;
+
+  private image: HTMLImageElement;
+
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.goToNextScene = false;
     this.textScene = false;
     this.logo = CanvasRenderer.loadNewImage('./assets/NPC_grass_house 3.png');
+    this.image = CanvasRenderer.loadNewImage('./assets/Controlsscreen 1.png');
+    this.escPressed = false;
+    this.showImage = false;
   }
 
   /**
@@ -25,6 +34,15 @@ export default class Shop extends Scene {
    * @param keyListener t
    */
   public override processInput(mouseListener: MouseListener, keyListener: KeyListener): void {
+    if (keyListener.isKeyDown(KeyListener.KEY_ESC)) {
+      if (!this.escPressed) {
+        // Toggle de zichtbaarheid van het plaatje
+        this.showImage = !this.showImage;
+        this.escPressed = true;
+      }
+    } else {
+      this.escPressed = false;
+    }
     const mouseX: number = mouseListener.getMousePosition().x;
     const mouseY: number = mouseListener.getMousePosition().y;
 
@@ -114,6 +132,9 @@ export default class Shop extends Scene {
         context.fillText(lines[i], x, lineY);
       }
     }
+    if (this.showImage) {
+      // eslint-disable-next-line max-len
+      CanvasRenderer.drawImage(canvas, this.image, canvas.width / 2 - this.image.width / 2, canvas.height / 2 - this.image.height / 2);
+    }
   }
 }
-
