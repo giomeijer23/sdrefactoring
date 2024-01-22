@@ -225,10 +225,10 @@ export default class Question4 {
       answers: [
         'A Click on any links provided in the email',
         'B Check the sender email address for authenticity',
-        'C Respond to the email with personal informati',
+        'C Respond to the email with personal information',
         'D Forward the email to friends for confirmation',
       ],
-      correctAnswer: 'B Check the sender email address for authenticityn',
+      correctAnswer: 'B Check the sender email address for authenticity',
       explanation: 'Check the sender email address for authenticity',
     },
     {
