@@ -32,7 +32,7 @@ export default class Dungeon extends Game {
   }
 
   /**
-   *@returns -
+   * @returns -
    * @param elapsed -
    */
   public update(elapsed: number): boolean {
