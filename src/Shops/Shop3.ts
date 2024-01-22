@@ -93,7 +93,7 @@ export default class Shop3 extends Scene {
     CanvasRenderer.fillCanvas(canvas, 'rgb(0, 0, 0)');
     CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 2 - this.logo.height / 2);
     if (this.textScene) {
-      const lines: string[] = ['Use the knowledge you have from the previous information.', 'Good luck!!!', 'Press Key F']; // Voeg elke regel tekst toe aan dit array
+      const lines: string[] = ['Use the knowledge you have from the previous information.', 'Good luck!!!', 'Press the F Key']; // Voeg elke regel tekst toe aan dit array
       const x: number = canvas.width / 2;
       const y: number = canvas.height / 2;
       const textAlign: CanvasTextAlign = 'center';
