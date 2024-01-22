@@ -89,7 +89,7 @@ export default class Question3 {
       explanation: 'To understand how the website will handle and protect your data',
     },
     {
-      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization, but you have doubts about its legitimacy?',
+      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization?',
       answers: [
         'A Click on the link to confirm its authenticity',
         'B Forward the email to all your contacts for verification',
@@ -209,7 +209,7 @@ export default class Question3 {
       explanation: 'To understand how the website will handle and protect your data',
     },
     {
-      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization, but you have doubts about its legitimacy?',
+      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization?',
       answers: [
         'A Click on the link to confirm its authenticity',
         'B Forward the email to all your contacts for verification',
@@ -330,7 +330,7 @@ export default class Question3 {
       explanation: 'To understand how the website will handle and protect your data',
     },
     {
-      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization, but you have doubts about its legitimacy?',
+      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization?',
       answers: [
         'A Click on the link to confirm its authenticity',
         'B Forward the email to all your contacts for verification',
@@ -451,7 +451,7 @@ export default class Question3 {
       explanation: 'To understand how the website will handle and protect your data',
     },
     {
-      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization, but you have doubts about its legitimacy?',
+      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization?',
       answers: [
         'A Click on the link to confirm its authenticity',
         'B Forward the email to all your contacts for verification',
@@ -572,7 +572,7 @@ export default class Question3 {
       explanation: 'To understand how the website will handle and protect your data',
     },
     {
-      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization, but you have doubts about its legitimacy?',
+      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization?',
       answers: [
         'A Click on the link to confirm its authenticity',
         'B Forward the email to all your contacts for verification',
@@ -692,7 +692,7 @@ export default class Question3 {
       explanation: 'To understand how the website will handle and protect your data',
     },
     {
-      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization, but you have doubts about its legitimacy?',
+      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization?',
       answers: [
         'A Click on the link to confirm its authenticity',
         'B Forward the email to all your contacts for verification',
@@ -813,7 +813,7 @@ export default class Question3 {
       explanation: 'To understand how the website will handle and protect your data',
     },
     {
-      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization, but you have doubts about its legitimacy?',
+      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization?',
       answers: [
         'A Click on the link to confirm its authenticity',
         'B Forward the email to all your contacts for verification',
@@ -934,7 +934,7 @@ export default class Question3 {
       explanation: 'To understand how the website will handle and protect your data',
     },
     {
-      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization, but you have doubts about its legitimacy?',
+      question: 'What should you do if you receive an email with a link claiming to be from a familiar organization?',
       answers: [
         'A Click on the link to confirm its authenticity',
         'B Forward the email to all your contacts for verification',
@@ -965,7 +965,7 @@ export default class Question3 {
       ],
       correctAnswer: 'C You verify if the email is reliable and decide upon it with your',
       explanation: 'You verify if the email is reliable and decide upon it with your',
-    },
+    }
   ];
 
   public static dumpQuestions: Question3[] = [];
