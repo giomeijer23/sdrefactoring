@@ -124,8 +124,6 @@ export default class Level1 extends Scene {
     } else {
       this.scoreEnemie -= 1;
     }
-    console.log(this.scoreEnemie);
-    console.log(this.scorePlayer);
     if (this.isAnswerCorrect) {
       this.decreasePlayerLives();
     }
@@ -182,11 +180,9 @@ export default class Level1 extends Scene {
       }
       this.hearts.update(elapsed);
       if (this.isDisplayingAnswerAndExplanation && this.isAnswerCorrect) {
-        console.log('Correct antwoord');
         this.hearts.decreaseLives();
       } else if (this.isDisplayingAnswerAndExplanation && !this.isAnswerCorrect) {
         this.heartsPlayer.update(elapsed);
-        console.log('Correct antwoord');
         this.heartsPlayer.decreaseLives();
       }
     }
