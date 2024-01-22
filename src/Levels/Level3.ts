@@ -5,11 +5,12 @@ import MouseListener from '../MouseListener.js';
 import Scene from '../Scene.js';
 import Speler from '../Speler.js';
 import Enemie from '../Enemie.js';
-import Question3 from '../Questions/Question3.js';
-import OpenWereld6 from '../Openwerelden/OpenWereld6.js';
-import OpenWereld4 from '../Openwerelden/OpenWereld4.js';
+import Question2 from '../Questions/Question2.js';
 import Hearts from '../Hearts.js';
 import HeartsPlayer from '../HeartsPlayer.js';
+import Question3 from '../Questions/Question3.js';
+import OpenWereld4 from '../Openwerelden/OpenWereld4.js';
+import OpenWereld6 from '../Openwerelden/OpenWereld6.js';
 
 export default class Level3 extends Scene {
   private goToNextScene: boolean;
@@ -20,6 +21,10 @@ export default class Level3 extends Scene {
 
   private logo: HTMLImageElement;
 
+  private hearts: Hearts;
+
+  private heartsPlayer: HeartsPlayer;
+
   private isDisplayingQuestion: boolean;
 
   private isDisplayingAnswerAndExplanation: boolean;
@@ -27,10 +32,6 @@ export default class Level3 extends Scene {
   private isPlayerAnswering: boolean;
 
   private isAnswerCorrect: boolean;
-
-  private hearts: Hearts;
-
-  private heartsPlayer: HeartsPlayer;
 
   private questions: Question3[] = [];
 
@@ -62,20 +63,20 @@ export default class Level3 extends Scene {
     super(maxX, maxY);
     this.enemie = new Enemie(maxX, maxY);
     this.player = new Speler(maxX, maxY);
-    this.questions = Question3.question;
-    this.dumpQuestions = Question3.dumpQuestions;
+    this.questions = Question2.question;
+    this.dumpQuestions = Question2.dumpQuestions;
     this.isDisplayingAnswerAndExplanation = false;
     this.isPlayerAnswering = false;
     this.isDisplayingQuestion = true;
     this.goToNextScene = false;
     this.logo = CanvasRenderer.loadNewImage('./assets/blue-dungeon.png');
     this.image = CanvasRenderer.loadNewImage('./assets/Controlsscreen 1.png');
-    this.dungeonSpeler = CanvasRenderer.loadNewImage('./assets/woman_biggun.png');
+    this.dungeonSpeler = CanvasRenderer.loadNewImage('./assets/dungeonspeler.png');
     this.dungeonEnemy = CanvasRenderer.loadNewImage('./assets/Snowman_knife.png');
     this.escPressed = false;
     this.showImage = false;
-    this.scorePlayer = 3;
     this.scoreEnemie = 3;
+    this.scorePlayer = 3;
     this.hearts = new Hearts(maxX);
     this.heartsPlayer = new HeartsPlayer();
   }
@@ -157,7 +158,7 @@ export default class Level3 extends Scene {
 
     if (this.questions.length <= 0) {
       // If the main list is empty, refill it from dumpQuestions
-      this.dumpQuestions.forEach((dumpQuestion: Question3) => {
+      this.dumpQuestions.forEach((dumpQuestion: Question2) => {
         this.questions.push(...Object.values(dumpQuestion));
       });
       this.dumpQuestions = [];
@@ -178,9 +179,8 @@ export default class Level3 extends Scene {
       this.isPlayerAnswering = true;
       this.isDisplayingAnswerAndExplanation = false;
       this.dumpQuestions.push(this.questions.splice(randomNumber, 1));
-
       if (this.questions.length <= 0) {
-        this.dumpQuestions.forEach((dumpQuestion: Question3) => {
+        this.dumpQuestions.forEach((dumpQuestion: Question2) => {
           this.questions.push(...Object.values(dumpQuestion));
         });
         this.dumpQuestions = [];
@@ -211,7 +211,7 @@ export default class Level3 extends Scene {
   public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.fillCanvas(canvas, 'black');
     CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 2.1 - this.logo.height / 2);
-    CanvasRenderer.drawImage(canvas, this.dungeonSpeler, canvas.width / 4 - this.dungeonSpeler.width / 2, canvas.height / 1.59 - this.dungeonSpeler.height / 2);
+    CanvasRenderer.drawImage(canvas, this.dungeonSpeler, canvas.width / 4 - this.dungeonSpeler.width / 2, canvas.height / 1.53 - this.dungeonSpeler.height / 2);
     CanvasRenderer.drawImage(canvas, this.dungeonEnemy, canvas.width / 1.3 - this.dungeonEnemy.width / 2, canvas.height / 1.55 - this.dungeonEnemy.height / 2);
 
     if (this.isDisplayingQuestion) {

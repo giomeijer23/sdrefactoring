@@ -6,10 +6,10 @@ import Scene from '../Scene.js';
 import Speler from '../Speler.js';
 import Enemie from '../Enemie.js';
 import Question2 from '../Questions/Question2.js';
-import OpenWereld4 from '../Openwerelden/OpenWereld4.js';
 import Hearts from '../Hearts.js';
 import HeartsPlayer from '../HeartsPlayer.js';
 import OpenWereld2 from '../Openwerelden/OpenWereld2.js';
+import OpenWereld4 from '../Openwerelden/OpenWereld4.js';
 
 export default class Level2 extends Scene {
   private goToNextScene: boolean;
