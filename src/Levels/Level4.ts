@@ -48,6 +48,10 @@ export default class Level4 extends Scene {
 
   private showImage: boolean;
 
+  private dungeonSpeler: HTMLImageElement;
+
+  private dungeonEnemy: HTMLImageElement;
+
   private image: HTMLImageElement;
 
   private scorePlayer: number;
@@ -66,6 +70,8 @@ export default class Level4 extends Scene {
     this.goToNextScene = false;
     this.logo = CanvasRenderer.loadNewImage('./assets/Stone-dungeon.png');
     this.image = CanvasRenderer.loadNewImage('./assets/Controlsscreen 1.png');
+    this.dungeonSpeler = CanvasRenderer.loadNewImage('./assets/woman_biggun.png');
+    this.dungeonEnemy = CanvasRenderer.loadNewImage('./assets/Finalboss_man.png');
     this.escPressed = false;
     this.showImage = false;
     this.scorePlayer = 3;
@@ -209,6 +215,8 @@ export default class Level4 extends Scene {
   public override render(canvas: HTMLCanvasElement): void {
     CanvasRenderer.fillCanvas(canvas, 'black');
     CanvasRenderer.drawImage(canvas, this.logo, canvas.width / 2 - this.logo.width / 2, canvas.height / 2.1 - this.logo.height / 2);
+    CanvasRenderer.drawImage(canvas, this.dungeonSpeler, canvas.width / 4 - this.dungeonSpeler.width / 2, canvas.height / 1.59 - this.dungeonSpeler.height / 2);
+    CanvasRenderer.drawImage(canvas, this.dungeonEnemy, canvas.width / 1.3 - this.dungeonEnemy.width / 2, canvas.height / 1.58 - this.dungeonEnemy.height / 2);
 
     if (this.isDisplayingQuestion) {
       CanvasRenderer.drawRectangle(canvas, 350, 100, 900, 260, 'white');
