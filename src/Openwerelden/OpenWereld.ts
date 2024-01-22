@@ -34,7 +34,7 @@ export default class OpenWereld extends Scene {
     this.showImage = false;
     this.audioDiv = document.getElementById('audio');
     this.backgroundMusic = document.createElement('audio');
-    this.backgroundMusic.src = 'assets/achtergrondmuziekLang.mp3';
+    this.backgroundMusic.src = 'assets/achtergrondmuziek.mp3';
     this.audioDiv.appendChild(this.backgroundMusic);
     this.backgroundMusic.autoplay = true;
   }
