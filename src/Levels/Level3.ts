@@ -7,6 +7,9 @@ import Speler from '../Speler.js';
 import Enemie from '../Enemie.js';
 import Question3 from '../Questions/Question3.js';
 import OpenWereld6 from '../Openwerelden/OpenWereld6.js';
+import OpenWereld4 from '../Openwerelden/OpenWereld4.js';
+import Hearts from '../Hearts.js';
+import HeartsPlayer from '../HeartsPlayer.js';
 
 export default class Level3 extends Scene {
   private goToNextScene: boolean;
@@ -24,6 +27,10 @@ export default class Level3 extends Scene {
   private isPlayerAnswering: boolean;
 
   private isAnswerCorrect: boolean;
+
+  private hearts: Hearts;
+
+  private heartsPlayer: HeartsPlayer;
 
   private questions: Question3[] = [];
 
@@ -43,6 +50,10 @@ export default class Level3 extends Scene {
 
   private image: HTMLImageElement;
 
+  private scorePlayer: number;
+
+  private scoreEnemie: number;
+
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.enemie = new Enemie(maxX, maxY);
@@ -57,6 +68,14 @@ export default class Level3 extends Scene {
     this.image = CanvasRenderer.loadNewImage('./assets/Controlsscreen 1.png');
     this.escPressed = false;
     this.showImage = false;
+    this.scorePlayer = 3;
+    this.scoreEnemie = 3;
+    this.hearts = new Hearts(maxX);
+    this.heartsPlayer = new HeartsPlayer();
+  }
+
+  public decreasePlayerLives(): void {
+    this.hearts.decreaseLives();
   }
 
   /**
@@ -99,6 +118,20 @@ export default class Level3 extends Scene {
 
   private checkAnswer(selectedAnswer: string): void {
     this.isAnswerCorrect = selectedAnswer === this.correctAnswer.toString();
+    if (!this.isAnswerCorrect) {
+      // Onjuist antwoord
+      this.scorePlayer -= 1; // Verlaag de score van de vijand alleen bij een onjuist antwoord
+    } else {
+      this.scoreEnemie -= 1;
+    }
+    console.log(this.scoreEnemie);
+    console.log(this.scorePlayer);
+    if (this.isAnswerCorrect) {
+      this.decreasePlayerLives();
+    }
+    if (!this.isAnswerCorrect) {
+      this.heartsPlayer.decreaseLives();
+    }
     this.isDisplayingAnswerAndExplanation = true;
   }
 
@@ -148,12 +181,23 @@ export default class Level3 extends Scene {
         });
         this.dumpQuestions = [];
       }
+      this.hearts.update(elapsed);
+      if (this.isDisplayingAnswerAndExplanation && this.isAnswerCorrect) {
+        console.log('Correct antwoord');
+        this.hearts.decreaseLives();
+      } else if (this.isDisplayingAnswerAndExplanation && !this.isAnswerCorrect) {
+        this.heartsPlayer.update(elapsed);
+        console.log('Correct antwoord');
+        this.heartsPlayer.decreaseLives();
+      }
     }
   }
 
   public override getNextScene(): Scene {
-    if (this.goToNextScene) {
+    if (this.scoreEnemie <= 0) {
       return new OpenWereld6(this.maxX, this.maxY);
+    } else if (this.scorePlayer <= 0) {
+      return new OpenWereld4(this.maxX, this.maxY);
     }
     return this;
   }
@@ -198,5 +242,7 @@ export default class Level3 extends Scene {
       // eslint-disable-next-line max-len
       CanvasRenderer.drawImage(canvas, this.image, canvas.width / 2 - this.image.width / 2, canvas.height / 2 - this.image.height / 2);
     }
+    this.hearts.render(canvas);
+    this.heartsPlayer.render(canvas);
   }
 }
