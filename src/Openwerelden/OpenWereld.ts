@@ -18,6 +18,10 @@ export default class OpenWereld extends Scene {
 
   private logo: HTMLImageElement;
 
+  private audioDiv: HTMLElement;
+
+  private backgroundMusic: HTMLAudioElement;
+
   public constructor(maxX: number, maxY: number) {
     super(maxX, maxY);
     this.goToNextScene = false;
@@ -28,6 +32,11 @@ export default class OpenWereld extends Scene {
     this.logo = CanvasRenderer.loadNewImage('./assets/Controlsscreen 1.png');
     this.escPressed = false;
     this.showImage = false;
+    this.audioDiv = document.getElementById('audio');
+    this.backgroundMusic = document.createElement('audio');
+    this.backgroundMusic.src = 'assets/achtergrondmuziek.mp3';
+    this.audioDiv.appendChild(this.backgroundMusic);
+    this.backgroundMusic.autoplay = true;
   }
 
   /**
