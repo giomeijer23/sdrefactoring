@@ -123,7 +123,7 @@ export default class Level2 extends Scene {
   }
 
   private checkAnswer(selectedAnswer: string): void {
-    this.isAnswerCorrect = selectedAnswer === this.correctAnswer.toString();
+    this.extracted(selectedAnswer);
     if (!this.isAnswerCorrect) {
       // Onjuist antwoord
       this.scorePlayer -= 1; // Verlaag de score van de vijand alleen bij een onjuist antwoord
@@ -137,6 +137,10 @@ export default class Level2 extends Scene {
       this.heartsPlayer.decreaseLives();
     }
     this.isDisplayingAnswerAndExplanation = true;
+  }
+
+  private extracted(selectedAnswer: string) {
+    this.isAnswerCorrect = selectedAnswer === this.correctAnswer.toString();
   }
 
   private moveToNextQuestion(): void {
